@@ -1,0 +1,108 @@
+.resume {
+  margin: 0 auto;
+  padding: 1rem;
+  background: #fff;
+}
+
+.resume * {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+body * {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.role, .work-experience-heading {
+  font-weight: bold;
+}
+
+.personal-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 3rem auto;
+}
+
+.photo {
+  width: 20%;
+}
+
+.social-links a {
+  margin-top: 0.3rem;
+}
+
+.social-links img {
+  width: 1.8rem;
+}
+
+.work-experience-date {
+  color: grey;
+  font-size: 0.8rem;
+}
+
+.text {
+  margin: 2rem 1rem;
+}
+
+.section-title {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #B0B0B0;
+  display: flex;
+  align-items: center;
+}
+
+.post-date {
+  margin-top: 0.2rem;
+}
+
+.contribution-title {
+  margin-bottom: 0.2rem;
+}
+
+.contribution-description {
+  margin: 0.2rem 0;
+}
+
+.section-title .fas, .section-title .fab {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+
+.section-title .fas {
+  font-family: "Font Awesome 5 Free" !important;
+}
+
+.section-title .fab {
+  font-size: 1.8rem;
+  font-family: "Font Awesome 5 Brands" !important;
+}
+
+
+@media (min-width: 992px) {
+
+  .resume {
+    width: 80%;
+    padding: 1rem 5%;
+    box-shadow: -1px 2px 15px 5px rgba(0,0,0,0.75);
+    border-radius: 3px;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .resume {
+    padding: 1rem 10%;
+  }
+}

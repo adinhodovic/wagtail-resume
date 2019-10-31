@@ -1,0 +1,14 @@
+{% load wagtailmarkdown %}
+
+<h2 class="section-title"><i class="{{ value.fa_icon }} mr-3"></i><span>{{ value.heading }}</span></h2>
+{% for experience in value.experiences %}
+<span class="work-experience-heading">{{ experience.role }} - {{ experience.company }}</span>
+<a href="{{ experience.url }}">{{ role.experience }}</a>
+<p class="work-experience-date">
+  {{ experience.from_date }} - {{ experience.to_date }}
+</p>
+<p>
+  {{ experience.text | markdown }}
+</p>
+{% endfor %}
+

@@ -1,0 +1,41 @@
+{% load static %}
+{% load wagtailimages_tags %}
+{% load wagtailmarkdown %}
+{% load debugger_tags %}
+
+<div class="resume">
+  <div class="personal-info">
+    <div>
+      <h2>{{ page.full_name }}</h2>
+
+      {% if page.role %}
+      <h4 class="role">{{ page.role }}</h4>
+      {% endif %}
+
+      <div class="social-links">
+      {% for social_link in page.social_links %}
+      <div class="social-links">
+        <a href="{{ social_link.value.url }}">
+          {% image social_link.value.logo original %}
+          {{ social_link.value.url }}
+        </a>
+      </div>
+      {% endfor %}
+      </div>
+
+    </div>
+
+    {% image page.photo original class="photo" %}
+  </div>
+
+  <div>
+    <h2 class="section-title"><i class="fas fa-info-circle mr-3"></i><span>About</span></h2>
+    <p>
+      {{ page.about | markdown }}
+    </p>
+  </div>
+
+  {% for block in page.resume %}
+    {{ block }}
+  {% endfor %}
+</div>

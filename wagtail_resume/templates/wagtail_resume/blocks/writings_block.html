@@ -1,0 +1,20 @@
+{% load wagtailcore_tags %}
+
+<h2 class="section-title"><i class="{{ value.fa_icon }} mr-3"></i><span>{{ value.heading }}</span></h2>
+{% for post in value.posts %}
+  <ul>
+    <li>
+      {% if post.block_type == "external_post" %}
+      <a href="{{ post.value.url }}">{{ post.value.title }}</a>
+      <p class="dates post-date">
+        {{ post.value.date }}
+      </p>
+      {% else %}
+      <a href="{% pageurl post.value %}">{{ post.value.specific.title }}</a>
+      <p class="dates post-date">
+        {{ post.value.specific.date }}
+      </p>
+      {% endif %}
+    </li>
+  </ul>
+{% endfor %}

@@ -51,7 +51,7 @@ urllib3==1.25.6
 wagtail==2.6.3
 wagtail-markdown==0.5
 wagtail-metadata==3.0.0
-wagtail-resume==0.0.1
+wagtail-resume==0.0.2
 wcwidth==0.1.7
 webencodings==0.5.1
 Werkzeug==0.16.0

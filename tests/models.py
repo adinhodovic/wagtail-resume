@@ -1,5 +1,5 @@
-from wagtail_resume.models import ResumePage
+from wagtail_resume.models import ResumePageMixin
 
 
-class CustomResumePage(ResumePage):
+class CustomResumePage(ResumePageMixin):
     pass

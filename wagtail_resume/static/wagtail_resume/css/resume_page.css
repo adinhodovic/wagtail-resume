@@ -1,11 +1,26 @@
+body * {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100% !important;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100vh;
+}
+
 .resume {
   margin: 0 auto;
   padding: 1rem;
   background: #fff;
-}
-
-.resume * {
-  font-family: 'Roboto Condensed', sans-serif;
+  min-height: calc(100vh - 4rem);
+  max-width: 950px;
 }
 
 img {
@@ -17,11 +32,6 @@ a {
   color: #007bff;
   text-decoration: none;
   background-color: transparent;
-}
-
-body * {
-  font-weight: 400;
-  line-height: 1.2;
 }
 
 .role, .work-experience-heading {
@@ -93,16 +103,7 @@ body * {
 @media (min-width: 992px) {
 
   .resume {
-    width: 80%;
-    padding: 1rem 5%;
-    box-shadow: -1px 2px 15px 5px rgba(0,0,0,0.75);
-    border-radius: 3px;
-  }
-}
-
-@media (min-width: 1200px) {
-
-  .resume {
-    padding: 1rem 10%;
+    width: 60%;
+    padding: 3rem 4rem;
   }
 }

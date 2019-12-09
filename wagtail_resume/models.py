@@ -12,11 +12,18 @@ from wagtailmetadata.models import MetadataMixin
 from .blocks import ContributionsBlock, WorkExperienceBlock, WritingsBlock
 
 
-class ResumePage(MetadataMixin, Page):
+class ResumePageMixin(MetadataMixin, Page):
+    page_ptr = models.OneToOneField(
+        Page, parent_link=True, related_name="+", on_delete=models.CASCADE
+    )
     is_creatable = False
     template = "wagtail_resume/resume_page.html"
 
+    font = models.CharField(max_length=100, null=True, blank=True)
+    background_color = models.CharField(max_length=100, null=True, blank=True)
+
     full_name = models.CharField(max_length=100, null=True, blank=True)
+
     role = models.CharField(max_length=100, null=True, blank=True)
     about = MarkdownField(max_length=1000, null=True, blank=True)
     photo = models.ForeignKey(
@@ -46,6 +53,10 @@ class ResumePage(MetadataMixin, Page):
     )
 
     content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [FieldPanel("font"), FieldPanel("background_color"),],
+            heading="Customization",
+        ),
         MultiFieldPanel(
             [
                 FieldPanel("full_name"),

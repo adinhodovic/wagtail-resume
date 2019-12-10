@@ -1,17 +1,3 @@
-{% comment %} {% extends "web/base.html" %} {% endcomment %}
-{% load wagtailcore_tags %}
-{% load wagtailmetadata_tags %}
-{% load wagtailmarkdown %}
-{% load static %}
+{% include "wagtail_resume/resume_page_head.html" %}
 
-{% block head %}
-{% comment %} {{ block.super }} {% endcomment %}
-<meta property="twitter:image" content="https://i.imgur.com/Ad6g3J7.jpg">
-<meta property="og:image" content="https://i.imgur.com/Ad6g3J7.jpg">
-<link rel="stylesheet" href="{% static 'css/resume_page.css' %}" />
-{% meta_tags %}
-{% endblock %}
-
-{% block content %}
-{% comment %} {{ block.super }} {% endcomment %}
-{% endblock %}
+{% include "wagtail_resume/resume_page_body.html" %}

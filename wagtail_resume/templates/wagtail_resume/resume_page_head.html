@@ -1,6 +1,13 @@
 {% load static %}
 {% load wagtailmetadata_tags %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
-<link rel="stylesheet" href="{% static 'wagtail_resume/css/resume_page.css' %}" />
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-{% meta_tags %}
+{% load wagtail_resume_extras %}
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+  <link href="https://fonts.googleapis.com/css?family={% if page.font %}{{ page.font|space_to_plus }}|{% endif %}Roboto+Condensed&display=swap" rel="stylesheet">
+  <meta property="twitter:image" content="https://i.imgur.com/Ad6g3J7.jpg">
+  <meta property="og:image" content="https://i.imgur.com/Ad6g3J7.jpg">
+  <link rel="stylesheet" href="{% static 'wagtail_resume/css/resume_page.css' %}" />
+
+  {% meta_tags %}
+</head>

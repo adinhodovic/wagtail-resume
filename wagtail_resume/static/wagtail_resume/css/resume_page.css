@@ -1,11 +1,41 @@
+body {
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.role {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  margin-bottom: 0.5rem;
+}
+
+.container {
+  width: 100% !important;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100vh;
+}
+
 .resume {
+  box-shadow: 0px 5px 5px 0 rgb(159, 159, 159);
   margin: 0 auto;
   padding: 1rem;
   background: #fff;
-}
-
-.resume * {
-  font-family: 'Roboto Condensed', sans-serif;
+  min-height: calc(100vh - 4rem);
+  max-width: 950px;
 }
 
 img {
@@ -19,35 +49,29 @@ a {
   background-color: transparent;
 }
 
-body * {
-  font-weight: 400;
-  line-height: 1.2;
-}
-
-.role, .work-experience-heading {
-  font-weight: bold;
-}
-
 .personal-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto 3rem auto;
+  margin-bottom: 0.1rem;
+  margin-top: 0.3rem;
 }
 
 .photo {
   width: 20%;
 }
 
-.social-links a {
-  margin-top: 0.3rem;
-}
-
 .social-links img {
+  margin-top: 0.4rem;
   width: 1.8rem;
 }
 
-.work-experience-date {
+.social-links span {
+  margin-left: 0.3rem;
+  vertical-align: super;
+}
+
+.date {
   color: grey;
   font-size: 0.8rem;
 }
@@ -72,7 +96,7 @@ body * {
 }
 
 .contribution-description {
-  margin: 0.2rem 0;
+  margin: 0.8rem 0;
 }
 
 .section-title .fas, .section-title .fab {
@@ -93,16 +117,7 @@ body * {
 @media (min-width: 992px) {
 
   .resume {
-    width: 80%;
-    padding: 1rem 5%;
-    box-shadow: -1px 2px 15px 5px rgba(0,0,0,0.75);
-    border-radius: 3px;
-  }
-}
-
-@media (min-width: 1200px) {
-
-  .resume {
-    padding: 1rem 10%;
+    width: 60%;
+    padding: 2rem 4rem;
   }
 }

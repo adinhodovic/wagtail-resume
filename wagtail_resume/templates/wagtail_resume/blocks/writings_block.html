@@ -13,7 +13,7 @@
     {% with post.value.post as internal_post %}
     <a href="{{ internal_post.url }}">{{ internal_post.title }}</a>
     <p class="date post-date">
-      {{ internal_post.date }}
+      {{ internal_post.date|date:"M.D,Y" }}
     </p>
     {% endwith %}
     {% endif %}

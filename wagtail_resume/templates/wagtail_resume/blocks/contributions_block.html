@@ -2,10 +2,10 @@
 
 <h2 class="section-title"><i class="{{ value.fa_icon }}"></i><span>{{ value.heading }}</span></h2>
 <ul>
-{% for contribution in value.contributions %}
-<li>
-<h3 class="contribution-title">{{ contribution.title }} - <a href="{{ contribution.url }}">{{ contribution.url }}></a></h3>
-<p class="contribution-description">{{ contribution.description }}</p>
-</li>
-{% endfor %}
+  {% for contribution in value.contributions %}
+  <li>
+    <a class="contribution-title" href="{{ contribution.url }}"><b>{{ contribution.title }}</b></a>
+    <p class="contribution-description">{{ contribution.description }}</p>
+  </li>
+  {% endfor %}
 </ul>

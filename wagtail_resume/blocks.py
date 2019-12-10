@@ -1,4 +1,5 @@
-from wagtail.core import blocks, fields
+# pylint: disable=R0903
+from wagtail.core import blocks
 from wagtailmarkdown.blocks import MarkdownBlock
 
 
@@ -61,7 +62,7 @@ class ContributionsBlock(blocks.StructBlock):
         icon = "code"
 
     heading = blocks.CharBlock(default="Contributions")
-    fa_icon = blocks.CharBlock(default="fab fa-github-square")
+    fa_icon = blocks.CharBlock(default="fas fa-code-branch")
     contributions = blocks.ListBlock(
         blocks.StructBlock(
             [

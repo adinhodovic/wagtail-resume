@@ -7,7 +7,7 @@
     <div class="resume">
       <div class="personal-info">
         <div>
-          <h2>{{ page.full_name }}</h2>
+          <h2 class="name">{{ page.full_name }}</h2>
 
           {% if page.role %}
           <h4 class="role">{{ page.role }}</h4>
@@ -16,16 +16,14 @@
           <div class="social-links">
             {% for social_link in page.social_links %}
             <div class="social-links">
-              <a href="{{ social_link.value.url }}">
+              <a class="social-link" href="{{ social_link.value.url }}">
                 {% image social_link.value.logo original %}
-                {{ social_link.value.url }}
+                <span>{{ social_link.value.text }}</span>
               </a>
             </div>
             {% endfor %}
           </div>
-
         </div>
-
         {% image page.photo original class="photo" %}
       </div>
 

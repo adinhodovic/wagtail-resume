@@ -34,7 +34,11 @@ class BaseResumePage(MetadataMixin, Page):
             (
                 "social_link",
                 blocks.StructBlock(
-                    [("url", blocks.URLBlock()), ("logo", ImageChooserBlock())],
+                    [
+                        ("text", blocks.TextBlock()),
+                        ("url", blocks.URLBlock()),
+                        ("logo", ImageChooserBlock()),
+                    ],
                     icon="group",
                 ),
             ),

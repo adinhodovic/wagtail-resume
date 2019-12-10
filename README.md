@@ -30,8 +30,13 @@ class ResumePage(BaseResumePage):
     template = "wagtail_resume/resume_page.html"
 ```
 
-Head over to the Wagtail admin and creating your resume!
+Head over to the Wagtail admin and create your resume!
 
 ## Customization
 
-Wagtail-resume currently supports two customizations: font & background-color. The background-color should be specified in hex (e.g #FFFFFF) and the font should be available on Google fonts. The fonts are only taken from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.
+Wagtail-resume currently supports two customizations:
+
+- Font style
+- HTML background color
+
+The background-color should be specified in hex (e.g #FFFFFF) and the font should be available on Google fonts. The fonts are only taken from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.

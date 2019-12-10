@@ -12,7 +12,7 @@ from wagtailmetadata.models import MetadataMixin
 from .blocks import ContributionsBlock, WorkExperienceBlock, WritingsBlock
 
 
-class ResumePageMixin(MetadataMixin, Page):
+class BaseResumePage(MetadataMixin, Page):
     page_ptr = models.OneToOneField(
         Page, parent_link=True, related_name="+", on_delete=models.CASCADE
     )
@@ -34,7 +34,8 @@ class ResumePageMixin(MetadataMixin, Page):
             (
                 "social_link",
                 blocks.StructBlock(
-                    [("url", blocks.URLBlock()), ("logo", ImageChooserBlock())]
+                    [("url", blocks.URLBlock()), ("logo", ImageChooserBlock())],
+                    icon="group",
                 ),
             ),
         ],

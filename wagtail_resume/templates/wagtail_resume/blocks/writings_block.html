@@ -1,4 +1,4 @@
-{% load wagtailcore_tags wagtail_resume_extras %}
+{% load wagtailcore_tags %}
 
 <h2 class="section-title"><i class="{{ value.fa_icon }} mr-3"></i><span>{{ value.heading }}</span></h2>
 {% for post in value.posts %}
@@ -13,7 +13,7 @@
     {% with post.value.post as internal_post %}
     <a href="{{ internal_post.url }}">{{ internal_post.title }}</a>
     <p class="date post-date">
-      {{ internal_post.date }}
+      {{ internal_post.first_published_at|date:"M. d, Y" }}
     </p>
     {% endwith %}
     {% endif %}

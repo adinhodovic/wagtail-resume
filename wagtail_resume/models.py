@@ -86,3 +86,6 @@ class BaseResumePage(MetadataMixin, Page):
 
     def get_meta_url(self):
         return self.get_full_url
+
+    def get_meta_twitter_card_type(self):
+        return self.photo

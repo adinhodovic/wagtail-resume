@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class WagtailResumeConfig(AppConfig):
-    name = 'wagtail_resume'
+    name = "wagtail_resume"
 
     def ready(self):
         try:

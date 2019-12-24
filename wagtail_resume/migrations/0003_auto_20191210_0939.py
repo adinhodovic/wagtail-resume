@@ -9,13 +9,29 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtail_resume', '0002_auto_20191209_2007'),
+        ("wagtail_resume", "0002_auto_20191209_2007"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='baseresumepage',
-            name='social_links',
-            field=wagtail.core.fields.StreamField([('social_link', wagtail.core.blocks.StructBlock([('text', wagtail.core.blocks.TextBlock()), ('url', wagtail.core.blocks.URLBlock()), ('logo', wagtail.images.blocks.ImageChooserBlock())], icon='group'))], blank=True, null=True),
+            model_name="baseresumepage",
+            name="social_links",
+            field=wagtail.core.fields.StreamField(
+                [
+                    (
+                        "social_link",
+                        wagtail.core.blocks.StructBlock(
+                            [
+                                ("text", wagtail.core.blocks.TextBlock()),
+                                ("url", wagtail.core.blocks.URLBlock()),
+                                ("logo", wagtail.images.blocks.ImageChooserBlock()),
+                            ],
+                            icon="group",
+                        ),
+                    )
+                ],
+                blank=True,
+                null=True,
+            ),
         ),
     ]

@@ -4,7 +4,7 @@
 
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
-  <link href="https://fonts.googleapis.com/css?family={% if page.font %}{{ page.font|space_to_plus }}|{% endif %}Roboto+Condensed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family={% if page.font %}{{ page.font|title|space_to_plus }}|{% endif %}Roboto+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'wagtail_resume/css/resume_page.css' %}" />
 
   {% meta_tags %}

@@ -2,7 +2,7 @@
 {% load wagtailimages_tags %}
 {% load wagtailmarkdown %}
 
-<body style="font-family:{% if page.font %} '{{ page.font }}',{% endif %} 'Roboto Condensed', sans-serif;">
+<body style="font-family:{% if page.font %} '{{ page.font|title }}',{% endif %} 'Roboto Condensed', sans-serif;">
   <div class="container" style="background: {% if page.background_color %}{{page.background_color}}{% else %}#343A40{% endif %}">
     <div class="resume">
       <div class="personal-info">

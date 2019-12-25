@@ -1,6 +1,13 @@
 # Wagtail resume
 
+[![Build status](https://gitlab.com/hodovicadin/wagtail-resume/badges/master/pipeline.svg)](https://gitlab.com/hodovicadin/wagtail-resume/commits/master)
+[![Coverage](https://gitlab.com/hodovicadin/wagtail-resume/badges/master/coverage.svg)](https://gitlab.com/hodovicadin/wagtail-resume/commits/master)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/wagtail-resume.svg)](https://pypi.org/project/wagtail-resume/)
+[![PyPI Version](https://img.shields.io/pypi/v/wagtail-resume.svg?style=flat)](https://pypi.org/project/wagtail-resume/)
+
 Wagtail-resume is a reusable Wagtail page model designed to make creating a resume easy, fast and fully integrated into your site.
+
+## Installation
 
 Install wagtail-resume with pip:
 

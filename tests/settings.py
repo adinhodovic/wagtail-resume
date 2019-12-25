@@ -4,9 +4,15 @@ SECRET_KEY = "very-secret"
 
 ROOT_URLCONF = "tests.urls"
 
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "db.sqlite3"}}
+
 DJANGO_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
+]
+
+MIDDLEWARE = [
+    "wagtail.core.middleware.SiteMiddleware",
 ]
 
 THIRD_PARTY_APPS = [

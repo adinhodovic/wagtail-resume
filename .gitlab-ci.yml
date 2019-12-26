@@ -16,27 +16,22 @@ stages:
 test:python36-django:
   image: python:3.6
   stage: test
-  script: tox -e py36-django22,py36-django30,py36-djangomaster
+  script: tox -e py36-django22
 
 test:python37-django:
   image: python:3.7
   stage: test
-  script: tox -e py37-django22,py37-django30,py37-djangomaster
+  script: tox -e py37-django22
 
 test:python38-django:
   image: python:3.8
   stage: test
-  script: tox -e py38-django22,py38-django30,py38-djangomaster
+  script: tox -e py38-django22
 
 lint:
   image: python:3.8
   stage: test
   script: tox -e isort,black
-
-docs:
-  image: python:3.8
-  stage: test
-  script: tox -e docs
 
 release:
   image: python:3.8

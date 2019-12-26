@@ -17,7 +17,6 @@ class BaseResumePage(MetadataMixin, Page):
         Page, parent_link=True, related_name="+", on_delete=models.CASCADE
     )
     is_creatable = False
-    template = "wagtail_resume/resume_page.html"
 
     font = models.CharField(max_length=100, null=True, blank=True)
     background_color = models.CharField(max_length=100, null=True, blank=True)
@@ -74,6 +73,9 @@ class BaseResumePage(MetadataMixin, Page):
         ),
         StreamFieldPanel("resume"),
     ]
+
+    def get_template(self, request):
+        return "wagtail_resume/resume_page.html"
 
     def get_meta_title(self):
         return self.full_name

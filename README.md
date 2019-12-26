@@ -5,7 +5,7 @@
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/wagtail-resume.svg)](https://pypi.org/project/wagtail-resume/)
 [![PyPI Version](https://img.shields.io/pypi/v/wagtail-resume.svg?style=flat)](https://pypi.org/project/wagtail-resume/)
 
-Wagtail-resume is a reusable Wagtail page model designed to make the creation of a resume easy and quick. Additionally, it will be fully integrated into your site/blog.
+Wagtail-resume is a reusable Wagtail page model designed to make the creation of a good resume easy and quick. Additionally, it will be fully integrated into your site/blog.
 
 A sample resume can be found [here](https://hodovi.cc/wagtail-resume-sample).
 
@@ -36,8 +36,7 @@ from wagtail_resume.models import BaseResumePage
 
 
 class ResumePage(BaseResumePage):
-    ...
-    ...
+    pass
 ```
 
 Head over to the Wagtail admin and create your resume!

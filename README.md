@@ -5,7 +5,7 @@
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/wagtail-resume.svg)](https://pypi.org/project/wagtail-resume/)
 [![PyPI Version](https://img.shields.io/pypi/v/wagtail-resume.svg?style=flat)](https://pypi.org/project/wagtail-resume/)
 
-Wagtail-resume is a reusable Wagtail page model designed to make the creation of a resume easy, quick and have it fully integrated into your site/blog.
+Wagtail-resume is a reusable Wagtail page model designed to make the creation of a good resume easy and quick. Additionally, it will be fully integrated into your site/blog.
 
 A sample resume can be found [here](https://hodovi.cc/wagtail-resume-sample).
 
@@ -18,7 +18,7 @@ Install wagtail-resume with pip:
 Add the application to installed Django applications:
 
 ```py
-DJANGO_APPS = [
+INSTALLED_APPS = [
     ...
     "wagtail_resume",
     ...
@@ -49,3 +49,23 @@ Wagtail-resume currently supports two customizations:
 - HTML background color
 
 The background-color should be specified in hex (e.g #FFFFFF) or [css supported colors](https://www.w3schools.com/cssref/css_colors.asp) and the font should be available on Google fonts. The fonts supported are only the ones from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.
+
+## Preview
+
+Default resume fields:
+
+- Role
+- Profile picture
+- Social links
+- About
+- Work Experience
+- Contributions (Opensource/projects)
+- Writing (internal Wagtail pages or external URLs)
+
+You can customize sections, icons and titles of the section to create a section according to your needs. In case the section is too specific just create a new model field.
+
+Image preview:
+
+![Resume Preview](https://i.imgur.com/b0TxeGe.png)
+
+As mentioned previously the full resume example is [live and accesible here.](https://hodovi.cc/wagtail-resume-sample)

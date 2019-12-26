@@ -5,7 +5,9 @@
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/wagtail-resume.svg)](https://pypi.org/project/wagtail-resume/)
 [![PyPI Version](https://img.shields.io/pypi/v/wagtail-resume.svg?style=flat)](https://pypi.org/project/wagtail-resume/)
 
-Wagtail-resume is a reusable Wagtail page model designed to make creating a resume easy, fast and fully integrated into your site.
+Wagtail-resume is a reusable Wagtail page model designed to make the creation of a resume easy, quick and have it fully integrated into your site/blog.
+
+A sample resume can be found [here](https://hodovi.cc/wagtail-resume-sample).
 
 ## Installation
 
@@ -13,7 +15,7 @@ Install wagtail-resume with pip:
 
 `pip install wagtail-resume`
 
-Add the application to installed django applications:
+Add the application to installed Django applications:
 
 ```py
 DJANGO_APPS = [
@@ -34,7 +36,7 @@ from wagtail_resume.models import BaseResumePage
 
 
 class ResumePage(BaseResumePage):
-    template = "wagtail_resume/resume_page.html"
+    pass
 ```
 
 Head over to the Wagtail admin and create your resume!
@@ -46,4 +48,4 @@ Wagtail-resume currently supports two customizations:
 - Font style
 - HTML background color
 
-The background-color should be specified in hex (e.g #FFFFFF) and the font should be available on Google fonts. The fonts are only taken from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.
+The background-color should be specified in hex (e.g #FFFFFF) or [css supported colors](https://www.w3schools.com/cssref/css_colors.asp) and the font should be available on Google fonts. The fonts supported are only the ones from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.

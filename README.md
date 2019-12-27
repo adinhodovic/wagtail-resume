@@ -9,6 +9,8 @@ Wagtail-resume is a reusable Wagtail page model designed to make the creation of
 
 A sample resume can be found [here](https://hodovi.cc/wagtail-resume-sample).
 
+It uses wagtail-metadata for all meta & SEO fields.
+
 ## Installation
 
 Install wagtail-resume with pip:

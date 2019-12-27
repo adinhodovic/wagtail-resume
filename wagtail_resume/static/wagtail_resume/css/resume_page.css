@@ -51,20 +51,19 @@ a {
 }
 
 .personal-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 0.1rem;
   margin-top: 0.3rem;
 }
 
 .photo {
-  width: 20%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  width: 25%;
 }
 
 .social-links img {
   margin-top: 0.4rem;
-  width: 1.8rem;
+  width: 40px;
 }
 
 .social-links span {
@@ -83,8 +82,10 @@ a {
 
 .section-title {
   padding-bottom: 1rem;
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 1.2rem;
   border-bottom: 1px solid #B0B0B0;
-  display: flex;
   align-items: center;
 }
 
@@ -101,24 +102,37 @@ a {
 }
 
 .section-title .fas, .section-title .fab {
-  font-size: 1.4rem;
-  margin-right: 0.5rem;
-}
-
-.section-title .fas {
-  font-family: "Font Awesome 5 Free" !important;
-}
-
-.section-title .fab {
-  font-size: 1.8rem;
-  font-family: "Font Awesome 5 Brands" !important;
+  font-size: 48px;
 }
 
 
 @media (min-width: 992px) {
 
+  .personal-info {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .resume {
     width: 60%;
     padding: 2rem 4rem;
+  }
+
+  .social-links img {
+    margin-top: 0.4rem;
+    width: 30px;
+  }
+
+  .section-title .fas, .section-title .fab {
+    font-size: 26px;
+  }
+
+  .section-title {
+    grid-gap: .6rem;
+  }
+
+  .photo {
+    width: 20%;
   }
 }

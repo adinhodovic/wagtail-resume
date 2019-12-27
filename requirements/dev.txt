@@ -38,7 +38,6 @@ urllib3==1.25.7
 wagtail==2.7
 wagtail-markdown==0.5
 wagtail-metadata==3.0.0
-wagtail-resume==0.0.3
 wcwidth==0.1.7
 webencodings==0.5.1
 Willow==1.3

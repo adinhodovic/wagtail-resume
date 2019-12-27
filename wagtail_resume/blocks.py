@@ -66,9 +66,9 @@ class ContributionsBlock(blocks.StructBlock):
     contributions = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("title", blocks.CharBlock(required=False)),
-                ("description", blocks.TextBlock(required=False)),
-                ("url", blocks.URLBlock(required=False)),
+                ("title", blocks.CharBlock()),
+                ("description", blocks.TextBlock()),
+                ("url", blocks.URLBlock()),
             ],
             icon="folder-open-inverse",
         )

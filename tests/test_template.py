@@ -25,9 +25,6 @@ def test_template(client):
     template_role = soup.find("h4", {"class": "role"}).string
     assert template_role == role
 
-    template_role = soup.find("h4", {"class": "role"}).string
-    assert template_role == role
-
     template_about = soup.find("p", {"class": "about"})
     assert about in str(template_about)
 

@@ -9,7 +9,12 @@ from wagtailmarkdown.edit_handlers import MarkdownPanel
 from wagtailmarkdown.fields import MarkdownField
 from wagtailmetadata.models import MetadataMixin
 
-from .blocks import ContributionsBlock, WorkExperienceBlock, WritingsBlock
+from .blocks import (
+    ContributionsBlock,
+    EducationBlock,
+    WorkExperienceBlock,
+    WritingsBlock,
+)
 
 
 class BaseResumePage(MetadataMixin, Page):
@@ -51,6 +56,7 @@ class BaseResumePage(MetadataMixin, Page):
             ("work_experience", WorkExperienceBlock()),
             ("contributions", ContributionsBlock()),
             ("writing", WritingsBlock()),
+            ("education", EducationBlock()),
         ],
         null=True,
         blank=True,

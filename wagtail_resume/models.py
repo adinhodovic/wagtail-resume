@@ -11,9 +11,9 @@ from wagtailmetadata.models import MetadataMixin
 
 from .blocks import (
     ContributionsBlock,
+    EducationBlock,
     WorkExperienceBlock,
     WritingsBlock,
-    EducationBlock,
 )
 
 

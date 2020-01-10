@@ -63,6 +63,7 @@ Default resume fields:
 - Work Experience
 - Contributions (Opensource/projects)
 - Writing (internal Wagtail pages or external URLs)
+- Education (Degrees/Courses/Certificates)
 
 You can customize sections, icons and titles of the section to create a section according to your needs. In case the section is too specific just create a new model field.
 

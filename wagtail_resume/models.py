@@ -29,7 +29,7 @@ class BaseResumePage(MetadataMixin, Page):
     full_name = models.CharField(max_length=100, null=True, blank=True)
 
     role = models.CharField(max_length=100, null=True, blank=True)
-    about = MarkdownField(max_length=1000, null=True, blank=True)
+    about = MarkdownField(max_length=2500, null=True, blank=True)
     photo = models.ForeignKey(
         Image, null=True, blank=True, on_delete=models.SET_NULL, related_name="+"
     )

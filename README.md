@@ -7,9 +7,17 @@
 
 Wagtail-resume is a reusable Wagtail page model designed to make the creation of a good resume easy and quick. Additionally, it will be fully integrated into your site/blog.
 
-A sample resume can be found [here](https://hodovi.cc/wagtail-resume-sample).
+## Preview
 
-It uses wagtail-metadata for all meta & SEO fields.
+![Resume Preview](https://i.imgur.com/b0TxeGe.png)
+
+The full resume example is [live and accesible here.](https://hodovi.cc/wagtail-resume-sample)
+
+
+## Dependencies
+
+- Wagtail-metadata
+    - It uses wagtail-metadata for all meta & SEO fields.
 
 ## Installation
 
@@ -43,16 +51,7 @@ class ResumePage(BaseResumePage):
 
 Head over to the Wagtail admin and create your resume!
 
-## Customization
-
-Wagtail-resume currently supports two customizations:
-
-- Font style
-- HTML background color
-
-The background-color should be specified in hex (e.g #FFFFFF) or [css supported colors](https://www.w3schools.com/cssref/css_colors.asp) and the font should be available on Google fonts. The fonts supported are only the ones from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.
-
-## Preview
+## Default Fields
 
 Default resume fields:
 
@@ -65,10 +64,13 @@ Default resume fields:
 - Writing (internal Wagtail pages or external URLs)
 - Education (Degrees/Courses/Certificates)
 
-You can customize sections, icons and titles of the section to create a section according to your needs. In case the section is too specific just create a new model field.
+## Customization
 
-Image preview:
+Wagtail-resume currently supports 4 customizations:
 
-![Resume Preview](https://i.imgur.com/b0TxeGe.png)
+- Heading for a section
+- Icon for a section (Fontawesome)
+- Font style
+- Background color
 
-As mentioned previously the full resume example is [live and accesible here.](https://hodovi.cc/wagtail-resume-sample)
+The background-color should be specified in hex (e.g #FFFFFF) or [css supported colors](https://www.w3schools.com/cssref/css_colors.asp) and the font should be available on Google fonts. The fonts supported are only the ones from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.

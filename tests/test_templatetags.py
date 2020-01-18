@@ -9,5 +9,5 @@ def test_space_to_plus():
 
     assert (
         font_url
-        == "https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed&display=swap"
+        == "https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed&display=swap"  # pylint: disable=line-too-long
     )

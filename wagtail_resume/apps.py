@@ -6,7 +6,7 @@ class WagtailResumeConfig(AppConfig):
 
     def ready(self):
         try:
-            # pylint: disable=unused-import
+            # pylint: disable=unused-import,import-outside-toplevel
             import wagtail_resume.signals
         except ImportError:
             pass

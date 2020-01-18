@@ -23,6 +23,8 @@ Pillow==6.2.1
 pluggy==0.13.1
 py==1.8.0
 pylint==2.4.4
+pylint-django==2.0.13
+pylint-plugin-utils==0.6
 pyparsing==2.4.5
 pytest==5.3.2
 pytest-clarity==0.2.0a1

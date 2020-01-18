@@ -80,7 +80,7 @@ class BaseResumePage(MetadataMixin, Page):
         StreamFieldPanel("resume"),
     ]
 
-    def get_template(self, request):
+    def get_template(self, request):  # pylint: disable=arguments-differ
         return "wagtail_resume/resume_page.html"
 
     def get_meta_title(self):

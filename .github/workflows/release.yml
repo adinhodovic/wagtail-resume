@@ -25,7 +25,7 @@ jobs:
       max-parallel: 3
       matrix:
         python-version: [3.6, 3.7, 3.8]
-        dj-version: [django22]
+        dj-version: [django22, django30, djangomaster]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python ${{ matrix.python-version }}
@@ -40,14 +40,6 @@ jobs:
         run: |
           PY_VERSION=${{ matrix.python-version }} &&
           tox -e py${PY_VERSION//.}-${{ matrix.dj-version }}
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
-          flags: unittests
-          name: ${{ matrix.python-version }}-${{ matrix.dj-version }}
-          yml: ./codecov.yml
   docs:
     runs-on: ubuntu-latest
     needs: [test, lint]
@@ -79,8 +71,4 @@ jobs:
       - name: Publish pip packages with tox
         run: tox -e release
         env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-      - name: Publish pip packages with tox
-        run: echo $PYPI_TOKEN
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}

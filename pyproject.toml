@@ -1,0 +1,86 @@
+[tool.poetry]
+name = "wagtail-resume"
+authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
+license = "MIT"
+version = "0.1.5"
+readme = "README.md"
+homepage = "https://github.com/adinhodovic/wagtail-resume"
+repository = "https://github.com/adinhodovic/wagtail-resume"
+documentation = "https://github.com/adinhodovic/wagtail-resume"
+description = "A Wagtail project made to simplify creation of resumes for developers."
+keywords = [
+  "Resume",
+  "Django",
+  "Wagtail",
+  "CMS"
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 2.2",
+  "Framework :: Django :: 3.0",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+astroid = "2.3.3"
+attrs = "19.3.0"
+beautifulsoup4 = "4.6.0"
+bleach = "2.1.4"
+certifi = "2019.11.28"
+chardet = "3.0.4"
+Django = "2.2.9"
+django-modelcluster = "5.0"
+django-taggit = "1.2.0"
+django-treebeard = "4.3"
+djangorestframework = "3.11.0"
+draftjs-exporter = "2.1.7"
+html5lib = "1.0.1"
+idna = "2.8"
+isort = "4.3.21"
+lazy-object-proxy = "1.4.3"
+mccabe = "0.6.1"
+more-itertools = "8.0.2"
+packaging = "19.2"
+Pillow = "6.2.1"
+pluggy = "0.13.1"
+py = "1.8.0"
+pyparsing = "2.4.5"
+pytz = "2019.3"
+requests = "2.22.0"
+six = "1.13.0"
+sqlparse = "0.3.0"
+termcolor = "1.1.0"
+Unidecode = "1.1.1"
+urllib3 = "1.25.7"
+wagtail = "2.7"
+wagtail-markdown = {git = "https://github.com/danihodovic/wagtail-markdown.git", rev = "configurable-extensions"}
+wagtail-metadata = "3.0.0"
+wcwidth = "0.1.7"
+webencodings = "0.5.1"
+Willow = "1.3"
+wrapt = "1.11.2"
+
+[tool.poetry.dev-dependencies]
+pylint = "2.4.4"
+pylint-django = "2.0.13"
+pylint-plugin-utils = "0.6"
+tox = "^3.14.3"
+coverage = "^5.0.2"
+pytest = "^5.3.2"
+pytest-cov = "^2.8.1"
+pytest-django = "^3.7.0"
+pytest-clarity = "^0.2.0-alpha.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

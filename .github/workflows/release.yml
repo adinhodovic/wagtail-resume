@@ -79,8 +79,4 @@ jobs:
       - name: Publish pip packages with tox
         run: tox -e release
         env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-      - name: Publish pip packages with tox
-        run: echo $PYPI_TOKEN
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}

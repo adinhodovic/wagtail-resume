@@ -18,6 +18,7 @@ The full resume example is [live and accesible here.](https://hodovi.cc/wagtail-
 
 - Wagtail-metadata
     - It uses wagtail-metadata for all meta & SEO fields.
+- Wagtail-markdown
 
 ## Installation
 

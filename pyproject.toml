@@ -63,7 +63,8 @@ termcolor = "1.1.0"
 Unidecode = "1.1.1"
 urllib3 = "1.25.7"
 wagtail = "2.7"
-wagtail-markdown = {git = "https://github.com/danihodovic/wagtail-markdown.git", rev = "configurable-extensions"}
+wagtail-markdown = "0.5"
+# wagtail-markdown = {git = "https://github.com/danihodovic/wagtail-markdown.git", rev = "configurable-extensions"}
 wagtail-metadata = "3.0.0"
 wcwidth = "0.1.7"
 webencodings = "0.5.1"

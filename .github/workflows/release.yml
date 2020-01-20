@@ -40,6 +40,14 @@ jobs:
         run: |
           PY_VERSION=${{ matrix.python-version }} &&
           tox -e py${PY_VERSION//.}-${{ matrix.dj-version }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
+          name: ${{ matrix.python-version }}-${{ matrix.dj-version }}
+          yml: ./codecov.yml
   docs:
     runs-on: ubuntu-latest
     needs: [test, lint]

@@ -1,3 +1,5 @@
+DEBUG = True
+
 SECRET_KEY = "very-secret"
 
 ROOT_URLCONF = "tests.urls"
@@ -31,7 +33,9 @@ THIRD_PARTY_APPS = [
     "taggit",
 ]
 
-INSTALLED_APPS = ["wagtail_resume", "tests"]
+LOCAL_APPS = ["wagtail_resume", "tests"]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 TEMPLATES = [
     {

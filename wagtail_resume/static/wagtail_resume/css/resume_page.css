@@ -36,6 +36,7 @@ h4 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1rem;
+  padding-top: 1rem;
   background: #fff;
   min-height: calc(100vh - 4rem);
   max-width: 950px;
@@ -65,7 +66,7 @@ a {
 
 .social-links img {
   margin-top: 0.4rem;
-  width: 40px;
+  width: 28px;
 }
 
 .social-links span {
@@ -109,7 +110,7 @@ a {
 }
 
 .section-title .fas, .section-title .fab {
-  font-size: 36px;
+  font-size: 30px;
 }
 
 

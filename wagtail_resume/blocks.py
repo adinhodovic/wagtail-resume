@@ -17,7 +17,14 @@ class WorkExperienceBlock(blocks.StructBlock):
                 ("company", blocks.CharBlock()),
                 ("url", blocks.URLBlock()),
                 ("from_date", blocks.DateBlock()),
-                ("to_date", blocks.DateBlock()),
+                ("to_date", blocks.DateBlock(required=False)),
+                (
+                    "currently_working_here",
+                    blocks.BooleanBlock(
+                        help_text="Check this box if you are currently working here and it will indicate so on the resume.",
+                        required=False,
+                    ),
+                ),
                 ("text", MarkdownBlock()),
             ],
             icon="folder-open-inverse",

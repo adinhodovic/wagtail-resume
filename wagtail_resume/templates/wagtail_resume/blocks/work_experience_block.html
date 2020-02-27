@@ -5,7 +5,7 @@
 <span class="work-experience-heading"><b>{{ experience.role }}</b> - <a href="{{ experience.url }}">{{ experience.company }}</a></span>
 <a href="{{ experience.url }}">{{ role.experience }}</a>
 <p class="date">
-  {{ experience.from_date }} - {{ experience.to_date }}
+  {{ experience.from_date }} - {% if experience.currently_working_here %}<b>Present</b>{% else %}{{ experience.to_date }}{% endif %}
 </p>
 <p>
   {{ experience.text | markdown }}

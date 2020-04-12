@@ -8,7 +8,7 @@ from wagtail_resume.templatetags.wagtail_resume_extras import space_to_plus
 
 logger = logging.getLogger("weasyprint")
 logger.addHandler(logging.NullHandler())
-logger.setLevel(40) # Only show errors, use 50
+logger.setLevel(40)  # Only show errors, use 50
 
 
 def resume_pdf(request):

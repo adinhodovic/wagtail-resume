@@ -40,7 +40,7 @@
       {% for block in page.resume %}
       {{ block }}
       {% endfor %}
-      <a class="pdf" href="/resume/generate?resume_url={{ page.full_url }}&font={{ page.font|title|space_to_plus }}&name={{ page.full_name|slugify }}">Get PDF</a>
+      <a class="pdf" href="{% url 'generate_resume_pdf' %}?resume_url={{ page.full_url }}&font={{ page.font|title|space_to_plus }}&name={{ page.full_name|slugify }}">Get PDF</a>
     </div>
   </div>
 </body>

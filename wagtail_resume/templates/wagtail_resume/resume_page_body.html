@@ -1,6 +1,7 @@
 {% load static %}
 {% load wagtailimages_tags %}
 {% load wagtailmarkdown %}
+{% load wagtail_resume_extras %}
 
 <body style="font-family:{% if page.font %} '{{ page.font|title }}',{% endif %} 'Roboto Condensed', sans-serif;">
   <div class="container" style="background: {% if page.background_color %}{{page.background_color}}{% else %}#343A40{% endif %}">
@@ -24,7 +25,9 @@
             {% endfor %}
           </div>
         </div>
-        {% image page.photo original class="photo" %}
+        <div>
+          {% image page.photo original class="photo" %}
+        </div>
       </div>
 
       <div>
@@ -37,6 +40,7 @@
       {% for block in page.resume %}
       {{ block }}
       {% endfor %}
+      <a class="pdf" href="/resume/generate?resume_url={{ page.full_url }}&font={{ page.font|title|space_to_plus }}&name={{ page.full_name|slugify }}">Get PDF</a>
     </div>
   </div>
 </body>

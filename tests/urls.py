@@ -3,4 +3,5 @@ from wagtail.core import urls as wagtail_urls
 
 urlpatterns = [
     path("", include(wagtail_urls)),
+    path("resume/", include("wagtail_resume.urls")),
 ]

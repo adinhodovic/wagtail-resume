@@ -19,6 +19,8 @@ The full resume example is [live and accesible here.](https://hodovi.cc/wagtail-
 - Wagtail-metadata
     - It uses wagtail-metadata for all meta & SEO fields.
 - Wagtail-markdown
+- Weasyprint
+    - Uses Weasyprint to generate a PDF from the HTML page.
 
 ## Installation
 
@@ -34,6 +36,11 @@ INSTALLED_APPS = [
     "wagtail_resume",
     ...
 ]
+```
+
+Add the urls for generating a pdf using Weasyprint:
+```py
+    path("resume/", include("wagtail_resume.urls")),
 ```
 
 Run the migrations.

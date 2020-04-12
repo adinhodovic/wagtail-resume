@@ -35,6 +35,7 @@ wagtail = ">=2.7"
 wagtail-markdown = ">=0.5"
 wagtail-metadata = ">=3.0.0"
 weasyprint = "^51"
+pytest-mock = "^3.0.0"
 
 [tool.poetry.dev-dependencies]
 astroid = "2.3.3"

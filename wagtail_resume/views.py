@@ -2,6 +2,8 @@ import datetime
 import logging
 
 from django.http import HttpResponse
+from django.utils.text import slugify
+from wagtail.core.models import Page
 from weasyprint import HTML
 
 from wagtail_resume.templatetags.wagtail_resume_extras import space_to_plus
@@ -13,17 +15,23 @@ logger.setLevel(40)  # Only show errors, use 50
 
 def resume_pdf(request):
     response = HttpResponse(content_type="application/pdf")
-    name = request.GET.get("name")
+
+    page_id = request.GET.get("page_id")
+    resume = Page.objects.filter(id=page_id).first().specific
+
+    resume_url = resume.full_url
+    name = slugify(resume.full_name)
+    font = resume.font
+
     response[
         "Content-Disposition"
     ] = "inline; filename={name}-resume-{date}.pdf".format(
         name=name, date=datetime.datetime.now().strftime("%Y-%m-%d"),
     )
 
-    font = request.GET.get("font")
     if font:
-        font = space_to_plus(font)
-        HTML(url=request.GET.get("resume_url")).write_pdf(
+        font = space_to_plus(font).capitalize()
+        HTML(url=resume_url).write_pdf(
             response,
             stylesheets=[
                 # pylint: disable=line-too-long
@@ -31,5 +39,5 @@ def resume_pdf(request):
             ],
         )
     else:
-        HTML(url=request.GET.get("resume_url")).write_pdf(response)
+        HTML(url=resume_url).write_pdf(response)
     return response

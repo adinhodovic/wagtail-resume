@@ -28,17 +28,20 @@ Install wagtail-resume with pip:
 
 `pip install wagtail-resume`
 
-Add the application to installed Django applications:
+Add the application and dependencies to installed Django applications:
 
 ```py
 INSTALLED_APPS = [
     ...
+    "wagtailmetadata",
+    "wagtailmarkdown",
     "wagtail_resume",
     ...
 ]
 ```
 
 Add the urls for generating a pdf using Weasyprint:
+
 ```py
     path("resume/", include("wagtail_resume.urls")),
 ```

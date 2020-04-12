@@ -10,7 +10,7 @@ pytestmark = pytest.mark.django_db
 
 
 def test_weasyprint(client, mocker):
-    mocker.patch("weasyprint.HTML")
+    mocker.patch("wagtail_resume.views.HTML")
 
     site = Site.objects.first()
     resume = CustomResumePage(
@@ -26,7 +26,7 @@ def test_weasyprint(client, mocker):
 
 
 def test_weasyprint_with_font(client, mocker):
-    mocker.patch("weasyprint.HTML")
+    mocker.patch("wagtail_resume.views.HTML")
     site = Site.objects.first()
     resume = CustomResumePage(
         title="Resume", full_name="Adin Hodovic", role="Software engineer", font="lato"

@@ -1,6 +1,10 @@
 body {
-  color: #1e1e1e;
   margin: 0;
+  color: #212121;
+}
+
+p {
+  line-height: 1.4;
 }
 
 h2 {
@@ -9,7 +13,7 @@ h2 {
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 400;
 }
 
@@ -20,6 +24,7 @@ h4 {
 
 .name {
   margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 .container {
@@ -33,13 +38,8 @@ h4 {
 .resume {
   box-shadow: 0px 5px 5px 0 rgb(159, 159, 159);
   margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
   background: #fff;
   min-height: calc(100vh - 4rem);
-  max-width: 950px;
 }
 
 img {
@@ -58,15 +58,24 @@ a {
   margin-top: 0.3rem;
 }
 
+.personal-info > div {
+  display: inline-block;
+}
+
+.personal-info > div:last-of-type {
+  float: right;
+}
+
 .photo {
   padding-bottom: 1rem;
   padding-top: 1rem;
-  width: 25%;
+  border-radius: 1rem;
+  width: 150px;
 }
 
 .social-links img {
   margin-top: 0.4rem;
-  width: 28px;
+  width: 30px;
 }
 
 .social-links span {
@@ -85,11 +94,12 @@ a {
 
 .section-title {
   padding-bottom: 1rem;
-  display: grid;
-  grid-template-columns: min-content auto;
-  grid-gap: 1rem;
   border-bottom: 1px solid #B0B0B0;
   align-items: center;
+}
+
+.section-title i {
+  margin-right: 0.6rem;
 }
 
 .post-date {
@@ -113,16 +123,11 @@ a {
   font-size: 30px;
 }
 
+.pdf {
+  display: None;
+}
 
-@media (min-width: 992px) {
-
-  .section-title .fas, .section-title .fab {
-    font-size: 48px;
-  }
-
-  h2 {
-    font-size: 1.9rem;
-  }
+@media (min-width: 768px) {
 
   .personal-info {
     align-items: center;
@@ -131,24 +136,55 @@ a {
   }
 
   .resume {
+    padding: 4rem 3rem;
+    width: 80%;
+  }
+
+  .pdf {
+    color: white;
+    background: #2A3F76;
+    border-radius: 8px;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: .6rem 1.2rem;
+    line-height: 25px;
+    float: right;
+  }
+}
+
+@media (min-width: 992px) {
+
+  .resume {
+    padding: 4rem 4rem;
+    max-width: 950px;
     width: 60%;
-    padding: 2rem 4rem;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .section-title .fas, .section-title .fab {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .resume {
+    padding: 1.5rem;
   }
 
   .social-links img {
     margin-top: 0.4rem;
-    width: 30px;
-  }
-
-  .section-title .fas, .section-title .fab {
-    font-size: 26px;
-  }
-
-  .section-title {
-    grid-gap: .6rem;
+    width: 22px;
   }
 
   .photo {
-    width: 20%;
+    width: 45%;
+    margin-bottom: 1.5rem;
   }
 }

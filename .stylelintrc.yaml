@@ -1,0 +1,16 @@
+---
+plugins:
+  - stylelint-order
+  - stylelint-scss
+extends: stylelint-config-recommended-scss
+rules:
+  selector-max-id: 1
+  order/order:
+    - custom-properties
+    - declarations
+  number-leading-zero: never
+  order/properties-alphabetical-order: true
+  max-nesting-depth: 3
+  at-rule-no-unknown: null
+  scss/at-rule-no-unknown: true
+  indentation: 2

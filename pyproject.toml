@@ -37,6 +37,7 @@ wagtail = ">=2.7"
 wagtail-markdown = ">=0.5"
 # wagtail-markdown = {git = "https://github.com/danihodovic/wagtail-markdown.git", rev = "configurable-extensions"}
 wagtail-metadata = ">=3.0.0"
+weasyprint = "^51"
 
 [tool.poetry.dev-dependencies]
 astroid = "2.3.3"

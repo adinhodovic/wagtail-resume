@@ -6,7 +6,7 @@
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/wagtail-resume.svg)](https://pypi.org/project/wagtail-resume/)
 [![PyPI Version](https://img.shields.io/pypi/v/wagtail-resume.svg?style=flat)](https://pypi.org/project/wagtail-resume/)
 
-Wagtail-resume is a reusable Wagtail page model designed to make the creation of a good resume easy and quick. Additionally, it will be fully integrated into your site/blog.
+Wagtail-resume is a reusable Wagtail page model designed to make the creation of a good resume easy and quick. Additionally, it will be fully integrated into your site/blog. The resume comes with the feature to generate a PDF from the html page using Weasyprint.
 
 ## Preview
 
@@ -19,6 +19,8 @@ The full resume example is [live and accesible here.](https://hodovi.cc/wagtail-
 - Wagtail-metadata
     - It uses wagtail-metadata for all meta & SEO fields.
 - Wagtail-markdown
+- Weasyprint
+    - Uses Weasyprint to generate a PDF from the HTML page.
 
 ## Installation
 
@@ -34,6 +36,11 @@ INSTALLED_APPS = [
     "wagtail_resume",
     ...
 ]
+```
+
+Add the urls for generating a pdf using Weasyprint:
+```py
+    path("resume/", include("wagtail_resume.urls")),
 ```
 
 Run the migrations.

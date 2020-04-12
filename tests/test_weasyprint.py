@@ -9,7 +9,7 @@ pytestmark = pytest.mark.django_db
 def test_weasyprint(client):
     # Test random page pdf generation
     url = "%s?resume_url=https://google.com/&name=john-doe" % reverse(
-        "generate-resume-pdf"
+        "generate_resume_pdf"
     )
     res = client.get(url)
     assert "john-doe-resume" in res["content-disposition"]
@@ -20,7 +20,7 @@ def test_weasyprint(client):
 def test_weasyprint_with_font(client):
     # Test random page pdf generation
     url = "%s?resume_url=https://google.com/&name=john-doe&font=Lato" % reverse(
-        "generate-resume-pdf"
+        "generate_resume_pdf"
     )
     res = client.get(url)
     assert "john-doe-resume" in res["content-disposition"]

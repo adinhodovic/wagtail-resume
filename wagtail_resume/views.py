@@ -31,7 +31,7 @@ def resume_pdf(request):
 
     if font:
         font = space_to_plus(font).capitalize()
-        HTML(url="http://localhost:8000/resume").write_pdf(
+        HTML(url=resume_url).write_pdf(
             response,
             stylesheets=[
                 # pylint: disable=line-too-long

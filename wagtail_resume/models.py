@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import Truncator
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.core import blocks, fields
 from wagtail.core.models import Page
@@ -87,13 +88,14 @@ class BaseResumePage(MetadataMixin, Page):
         return self.full_name
 
     def get_meta_description(self):
-        return f"{self.full_name} - {self.role}"
+        about = Truncator(self.about).words(35)
+        return f"{self.full_name} - {self.role}. {about}"
 
     def get_meta_image(self):
         return self.photo
 
     def get_meta_url(self):
-        return self.get_full_url
+        return self.get_full_url()
 
     def get_meta_twitter_card_type(self):
         return self.photo

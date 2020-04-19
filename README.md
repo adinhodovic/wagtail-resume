@@ -75,7 +75,6 @@ class ResumePage(BaseResumePage):
 After adding the model you'll need to make a migration
 
 ```
-
 python manage.py makemigrations
 
 ```

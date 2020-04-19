@@ -2,6 +2,11 @@
 {% load wagtailimages_tags %}
 {% load wagtailmarkdown %}
 {% load wagtail_resume_extras %}
+{% load i18n %}
+
+{% if debug %}
+{% include 'wagtail_resume/localization_dropdown.html' %}
+{% endif %}
 
 <body style="font-family:{% if page.font %} '{{ page.font|title }}',{% endif %} 'Roboto Condensed', sans-serif;">
   <div class="container" style="background: {% if page.background_color %}{{page.background_color}}{% else %}#343A40{% endif %}">
@@ -31,7 +36,7 @@
       </div>
 
       <div>
-        <h2 class="section-title"><i class="fas fa-info-circle mr-3"></i><span>About</span></h2>
+        <h2 class="section-title"><i class="fas fa-info-circle mr-3"></i><span>{% trans "About" %}</span></h2>
         <p class="about">
           {{ page.about | markdown }}
         </p>
@@ -40,7 +45,7 @@
       {% for block in page.resume %}
       {{ block }}
       {% endfor %}
-      <a class="pdf" href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}">Get PDF</a>
+      <a class="pdf" href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}">{% trans "Get PDF" %}</a>
     </div>
   </div>
 </body>

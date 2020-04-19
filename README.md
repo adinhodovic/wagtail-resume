@@ -76,7 +76,6 @@ After adding the model you'll need to make a migration
 
 ```
 python manage.py makemigrations
-
 ```
 
 ... and then apply it

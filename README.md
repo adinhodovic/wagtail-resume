@@ -64,11 +64,24 @@ Run the migrations.
 Import and extend the BaseResumePage:
 
 ```python
+# home/models.py
 from wagtail_resume.models import BaseResumePage
 
 
 class ResumePage(BaseResumePage):
     pass
+```
+
+After adding the model you'll need to make a migration
+
+```
+python manage.py makemigrations
+```
+
+... and then apply it
+
+```
+python manage.py migrate
 ```
 
 Head over to the Wagtail admin and create your resume!

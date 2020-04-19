@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR hodovicadin@gmail.com, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-19 12:39-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/wagtail_resume/blocks/education_block.html:14
+msgid "Certificate"
+msgstr "Certifikat"
+
+#: templates/wagtail_resume/blocks/education_block.html:20
+msgid "Course"
+msgstr "Kurs"
+
+#: templates/wagtail_resume/blocks/work_experience_block.html:9
+msgid "Present"
+msgstr "Nu"
+
+#: templates/wagtail_resume/resume_page_body.html:39
+msgid "About"
+msgstr "Om"
+
+#: templates/wagtail_resume/resume_page_body.html:48
+msgid "Get PDF"
+msgstr "Hämta PDF"

@@ -1,3 +1,7 @@
+import os
+
+from django.utils.translation import ugettext_lazy as _
+
 DEBUG = True
 
 SECRET_KEY = "very-secret"
@@ -13,6 +17,7 @@ DJANGO_APPS = [
 
 MIDDLEWARE = [
     "wagtail.core.middleware.SiteMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 THIRD_PARTY_APPS = [
@@ -50,6 +55,14 @@ TEMPLATES = [
         },
     }
 ]
+
+LOCALE_PATHS = [
+    os.path.join(os.path.dirname(__file__), "locale"),
+]
+LANGUAGES = (
+    ("en-us", _("English")),
+    ("sv", _("Swedish")),
+)
 
 SITE_ID = 1
 

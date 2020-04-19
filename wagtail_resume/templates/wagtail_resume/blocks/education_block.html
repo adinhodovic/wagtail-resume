@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load wagtailcore_tags %}
 
 <h2 class="section-title"><i class="{{ value.fa_icon }} mr-3"></i><span>{{ value.heading }}</span></h2>
@@ -10,13 +11,13 @@
 {% endwith %}
 {% elif education.block_type == "certificate" %}
 {% with education.value as certificate %}
-<a href="{{ certificate.institute_url }}"><b>{{ certificate.institute_name }}</b> - Certificate</a>
+<a href="{{ certificate.institute_url }}"><b>{{ certificate.institute_name }}</b> - {% trans "Certificate" %}</a>
 <p class="post-degree"><a href="{{ certificate.certificate_url }}">{{ certificate.name }}</a></p>
 <p class="date post-date">{{ certificate.studies_starting_date|date:"m/Y" }} - {{ certificate.studies_ending_date|date:"m/Y"}}</p>
 {% endwith %}
 {% elif education.block_type == "course" %}
 {% with education.value as course %}
-<a href="{{ course.course_url }}"><b>{{ course.name }}</b> - Course</a>
+<a href="{{ course.course_url }}"><b>{{ course.name }}</b> - {% trans "Course" %}</a>
 <p class="date post-date">{{ course.studies_starting_date|date:"m/Y" }} - {{ course.studies_ending_date|date:"m/Y"}}</p>
 {% endwith %}
 {% endif %}

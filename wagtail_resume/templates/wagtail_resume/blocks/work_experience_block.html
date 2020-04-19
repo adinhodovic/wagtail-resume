@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load wagtailmarkdown %}
 
 <h2 class="section-title"><i class="{{ value.fa_icon }} mr-3"></i><span>{{ value.heading }}</span></h2>
@@ -5,7 +6,7 @@
 <span class="work-experience-heading"><b>{{ experience.role }}</b> - <a href="{{ experience.url }}">{{ experience.company }}</a></span>
 <a href="{{ experience.url }}">{{ role.experience }}</a>
 <p class="date">
-  {{ experience.from_date }} - {% if experience.currently_working_here %}<b>Present</b>{% else %}{{ experience.to_date }}{% endif %}
+  {{ experience.from_date }} - {% if experience.currently_working_here %}<b>{% trans "Present" %}</b>{% else %}{{ experience.to_date }}{% endif %}
 </p>
 <p>
   {{ experience.text | markdown }}

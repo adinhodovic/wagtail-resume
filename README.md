@@ -86,7 +86,7 @@ python manage.py migrate
 
 Head over to the Wagtail admin and create your resume!
 
-Weasyprint generates PDFs using the absolute URL of a resume which consists of the hostname, port and path. Therefore don't forget to configure your site's host and path in the Wagtail admin interface which is located in settings -> sites. E.g running locally the host should be localhost and the port should be 8000 (or whichever port you develop locally with).
+Weasyprint generates PDFs using the absolute URL of a resume which consists of the hostname, port and path. Therefore don't forget to configure your site's host and path in the Wagtail admin interface which is located in settings -> sites. E.g when running the server locally the host should be localhost and the port should be 8000 (or whichever port you develop locally with).
 
 ## Default Fields
 

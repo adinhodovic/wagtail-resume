@@ -86,6 +86,8 @@ python manage.py migrate
 
 Head over to the Wagtail admin and create your resume!
 
+Also don't forget to configure your site in admin interface that is located in settings -> sites (even if you are in localhost), otherwise you'll get an exception when you request document PDF.
+
 ## Default Fields
 
 Default resume fields:

@@ -9,44 +9,56 @@
 {% include 'wagtail_resume/localization_dropdown.html' %}
 {% endif %}
 
+<!-- beautify ignore:start -->
+{% with page.background_color|default_if_none:"#343A40" as bg_color %}
+<style>
+    @media (min-width: 1px) {
+        .container {
+            background-color: {{ bg_color }};
+        }
+    }
+</style>
+{% endwith %}
+<!-- beautify ignore:end -->
+
 <body style="font-family:{% if page.font %} '{{ page.font|title }}',{% endif %} 'Roboto Condensed', sans-serif;">
-  <div class="container" style="background: {% if page.background_color %}{{page.background_color}}{% else %}#343A40{% endif %}">
-    <div class="resume">
-      <div class="personal-info">
-        <div>
-          <h2 class="name">{{ page.full_name }}</h2>
+    <div class="container">
+        <div class="resume">
+            <div class="personal-info">
+                <div>
+                    <h2 class="name">{{ page.full_name }}</h2>
 
-          {% if page.role %}
-          <h4 class="role">{{ page.role }}</h4>
-          {% endif %}
+                    {% if page.role %}
+                    <h4 class="role">{{ page.role }}</h4>
+                    {% endif %}
 
-          <div class="social-links">
-            {% for social_link in page.social_links %}
-            <div class="social-links">
-              <a class="social-link" href="{{ social_link.value.url }}">
-                {% image social_link.value.logo original %}
-                <span>{{ social_link.value.text }}</span>
-              </a>
+                    <div class="social-links">
+                        {% for social_link in page.social_links %}
+                        <div class="social-links">
+                            <a class="social-link" href="{{ social_link.value.url }}">
+                                {% image social_link.value.logo original %}
+                                <span>{{ social_link.value.text }}</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    {% image page.photo original class="photo" %}
+                </div>
             </div>
+
+            <div>
+                <h2 class="section-title"><i class="fas fa-info-circle mr-3"></i><span>{% trans "About" %}</span></h2>
+                <p class="about">
+                    {{ page.about | markdown }}
+                </p>
+            </div>
+
+            {% for block in page.resume %}
+            {{ block }}
             {% endfor %}
-          </div>
+            <a class="pdf" href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}">{% trans "Get PDF" %}</a>
         </div>
-        <div>
-          {% image page.photo original class="photo" %}
-        </div>
-      </div>
-
-      <div>
-        <h2 class="section-title"><i class="fas fa-info-circle mr-3"></i><span>{% trans "About" %}</span></h2>
-        <p class="about">
-          {{ page.about | markdown }}
-        </p>
-      </div>
-
-      {% for block in page.resume %}
-      {{ block }}
-      {% endfor %}
-      <a class="pdf" href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}">{% trans "Get PDF" %}</a>
     </div>
-  </div>
 </body>

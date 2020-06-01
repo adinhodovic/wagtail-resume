@@ -10,6 +10,8 @@
 {% endif %}
 
 <!-- beautify ignore:start -->
+<!-- We set bg_color within a style tag to only apply bg_color when having a min-width. Weasyprint does not support @media queries
+     therefore setting a min-width to 1px ensures that the bg_color does not get applied when generating pdfs. -->
 {% with page.background_color|default_if_none:"#343A40" as bg_color %}
 <style>
     @media (min-width: 1px) {

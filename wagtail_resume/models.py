@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.text import Truncator
-
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.core import blocks, fields
 from wagtail.core.models import Page

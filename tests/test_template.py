@@ -44,5 +44,5 @@ def test_resume_preferences(client):
     soup = BeautifulSoup(res.content, "html.parser")
 
     template_body = soup.find("body")
-    #  assert 'style="background: blue">' in str(template_body)
+    #  assert 'style="background: blue">' in str(template_body) TODO: Run test with media query pylint: disable=line-too-long
     assert "font-family: 'Lato'" in str(template_body)

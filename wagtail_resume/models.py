@@ -65,7 +65,10 @@ class BaseResumePage(MetadataMixin, Page):
 
     content_panels = Page.content_panels + [
         MultiFieldPanel(
-            [FieldPanel("font"), FieldPanel("background_color"),],
+            [
+                FieldPanel("font"),
+                FieldPanel("background_color"),
+            ],
             heading="Customization",
         ),
         MultiFieldPanel(

@@ -28,7 +28,8 @@ def resume_pdf(request):
     response[
         "Content-Disposition"
     ] = "inline; filename={name}-resume-{date}.pdf".format(
-        name=name, date=datetime.datetime.now().strftime("%Y-%m-%d"),
+        name=name,
+        date=datetime.datetime.now().strftime("%Y-%m-%d"),
     )
 
     if font:

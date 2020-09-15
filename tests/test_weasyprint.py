@@ -14,7 +14,9 @@ def test_weasyprint(client, mocker):
 
     site = Site.objects.first()
     resume = CustomResumePage(
-        title="Resume", full_name="Adin Hodovic", role="Software engineer",
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
     )
     site.root_page.add_child(instance=resume)
     # Test random page pdf generation

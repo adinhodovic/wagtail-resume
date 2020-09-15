@@ -50,7 +50,8 @@ def test_weasyprint_with_no_page_id(client, mocker):
     # Test random page pdf generation
     url = f"{reverse('generate_resume_pdf')}"
     res = client.get(url)
-    assert "Missing page id for resume generation" in res["content-disposition"]
+    print(res)
+    assert b"Missing page id for resume generation" in res.content
     assert res.status_code == 400
 
 

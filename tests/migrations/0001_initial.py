@@ -2,6 +2,12 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
+import wagtail.core.blocks
+import wagtail.core.fields
+import wagtail.images.blocks
+import wagtailmarkdown.blocks
+import wagtailmarkdown.fields
+import wagtailmetadata.models
 
 
 class Migration(migrations.Migration):
@@ -9,28 +15,27 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("wagtail_resume", "0001_initial"),
+        ('wagtailcore', '0041_group_collection_permissions_verbose_name_plural'),
+        ('wagtailimages', '0001_squashed_0021'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name="CustomResumePage",
+            name='BaseResumePage',
             fields=[
-                (
-                    "baseresumepage_ptr",
-                    models.OneToOneField(
-                        auto_created=True,
-                        on_delete=django.db.models.deletion.CASCADE,
-                        parent_link=True,
-                        primary_key=True,
-                        serialize=False,
-                        to="wagtail_resume.BaseResumePage",
-                    ),
-                ),
+                ('page_ptr', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='+', serialize=False, to='wagtailcore.Page')),
+                ('font', models.CharField(blank=True, max_length=100, null=True)),
+                ('background_color', models.CharField(blank=True, max_length=100, null=True)),
+                ('full_name', models.CharField(blank=True, max_length=100, null=True)),
+                ('role', models.CharField(blank=True, max_length=100, null=True)),
+                ('about', wagtailmarkdown.fields.MarkdownField(blank=True, max_length=1000, null=True)),
+                ('social_links', wagtail.core.fields.StreamField([('social_link', wagtail.core.blocks.StructBlock([('text', wagtail.core.blocks.TextBlock()), ('url', wagtail.core.blocks.URLBlock()), ('logo', wagtail.images.blocks.ImageChooserBlock())], icon='group'))], blank=True, null=True)),
+                ('resume', wagtail.core.fields.StreamField([('work_experience', wagtail.core.blocks.StructBlock([('heading', wagtail.core.blocks.CharBlock(default='Work experience')), ('fa_icon', wagtail.core.blocks.CharBlock(default='fas fa-tools')), ('experiences', wagtail.core.blocks.ListBlock(wagtail.core.blocks.StructBlock([('role', wagtail.core.blocks.CharBlock()), ('company', wagtail.core.blocks.CharBlock()), ('url', wagtail.core.blocks.URLBlock()), ('from_date', wagtail.core.blocks.DateBlock()), ('to_date', wagtail.core.blocks.DateBlock()), ('text', wagtailmarkdown.blocks.MarkdownBlock())], icon='folder-open-inverse')))])), ('contributions', wagtail.core.blocks.StructBlock([('heading', wagtail.core.blocks.CharBlock(default='Contributions')), ('fa_icon', wagtail.core.blocks.CharBlock(default='fas fa-code-branch')), ('contributions', wagtail.core.blocks.ListBlock(wagtail.core.blocks.StructBlock([('title', wagtail.core.blocks.CharBlock(required=False)), ('description', wagtail.core.blocks.TextBlock(required=False)), ('url', wagtail.core.blocks.URLBlock(required=False))], icon='folder-open-inverse')))])), ('writing', wagtail.core.blocks.StructBlock([('heading', wagtail.core.blocks.CharBlock(default='Writing')), ('fa_icon', wagtail.core.blocks.CharBlock(default='fas fa-pencil-alt')), ('posts', wagtail.core.blocks.StreamBlock([('internal_post', wagtail.core.blocks.StructBlock([('post', wagtail.core.blocks.PageChooserBlock())], icon='doc-full-inverse')), ('external_post', wagtail.core.blocks.StructBlock([('title', wagtail.core.blocks.CharBlock()), ('url', wagtail.core.blocks.URLBlock()), ('date', wagtail.core.blocks.DateBlock())], icon='doc-full-inverse'))], icon='folder-open-inverse'))]))], blank=True, null=True)),
+                ('photo', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
             ],
             options={
-                "abstract": False,
+                'abstract': False,
             },
-            bases=("wagtail_resume.baseresumepage",),
+            bases=(wagtailmetadata.models.MetadataMixin, 'wagtailcore.page'),
         ),
     ]

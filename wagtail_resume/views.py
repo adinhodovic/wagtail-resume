@@ -17,7 +17,7 @@ def resume_pdf(request):
 
     page_id = request.GET.get("page_id")
     if not page_id:
-        return HttpResponseBadRequest('Missing page id for resume generation')
+        return HttpResponseBadRequest("Missing page id for resume generation")
     response = HttpResponse(content_type="application/pdf")
     resume = Page.objects.filter(id=page_id).first().specific
 

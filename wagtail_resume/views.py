@@ -1,7 +1,7 @@
 import datetime
 import logging
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.utils.text import slugify
 from wagtail.core.models import Page
 from weasyprint import HTML
@@ -14,9 +14,11 @@ logger.setLevel(40)  # Only show errors, use 50
 
 
 def resume_pdf(request):
-    response = HttpResponse(content_type="application/pdf")
 
     page_id = request.GET.get("page_id")
+    if not page_id:
+        return HttpResponseBadRequest("Missing page id for resume generation")
+    response = HttpResponse(content_type="application/pdf")
     resume = Page.objects.filter(id=page_id).first().specific
 
     resume_url = resume.full_url
@@ -26,7 +28,8 @@ def resume_pdf(request):
     response[
         "Content-Disposition"
     ] = "inline; filename={name}-resume-{date}.pdf".format(
-        name=name, date=datetime.datetime.now().strftime("%Y-%m-%d"),
+        name=name,
+        date=datetime.datetime.now().strftime("%Y-%m-%d"),
     )
 
     if font:

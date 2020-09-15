@@ -14,7 +14,9 @@ def test_weasyprint(client, mocker):
 
     site = Site.objects.first()
     resume = CustomResumePage(
-        title="Resume", full_name="Adin Hodovic", role="Software engineer",
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
     )
     site.root_page.add_child(instance=resume)
     # Test random page pdf generation
@@ -38,6 +40,21 @@ def test_weasyprint_with_font(client, mocker):
     assert "adin-hodovic" in res["content-disposition"]
     assert res.status_code == 200
     assert res["content-type"] == "application/pdf"
+
+
+def test_weasyprint_with_no_page_id(client, mocker):
+    mocker.patch("wagtail_resume.views.HTML")
+    site = Site.objects.first()
+    resume = CustomResumePage(
+        title="Resume", full_name="Adin Hodovic", role="Software engineer", font="lato"
+    )
+    site.root_page.add_child(instance=resume)
+    # Test random page pdf generation
+    url = f"{reverse('generate_resume_pdf')}"
+    res = client.get(url)
+    print(res)
+    assert b"Missing page id for resume generation" in res.content
+    assert res.status_code == 400
 
 
 def test_weasyprint_logger_warnings_disabled():

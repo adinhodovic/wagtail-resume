@@ -63,8 +63,8 @@ def test_weasyprint_no_resume(client, mocker):
         title="Resume", full_name="Adin Hodovic", role="Software engineer", font="lato"
     )
     site.root_page.add_child(instance=resume)
-    # Test random page pdf generation
-    url = f"{reverse('generate_resume_pdf')}?page_id=108"
+    # Test non existent resume
+    url = f"{reverse('generate_resume_pdf')}?page_id=9999"
     res = client.get(url)
     assert res.status_code == 404
 

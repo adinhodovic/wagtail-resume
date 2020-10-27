@@ -1,7 +1,7 @@
 import datetime
 import logging
 
-from django.http import HttpResponseNotFound, HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
 from django.utils.text import slugify
 from wagtail.core.models import Page
 from weasyprint import HTML
@@ -22,7 +22,7 @@ def resume_pdf(request):
     resume = Page.objects.filter(id=page_id).first()
 
     if not resume:
-        return HttpResponseNotFound('<h1>Page not found</h1>')
+        return HttpResponseNotFound("<h1>Page not found</h1>")
 
     specific = resume.specific
 

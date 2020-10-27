@@ -1,7 +1,7 @@
 import datetime
 import logging
 
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponseNotFound, HttpResponse, HttpResponseBadRequest
 from django.utils.text import slugify
 from wagtail.core.models import Page
 from weasyprint import HTML
@@ -19,11 +19,16 @@ def resume_pdf(request):
     if not page_id:
         return HttpResponseBadRequest("Missing page id for resume generation")
     response = HttpResponse(content_type="application/pdf")
-    resume = Page.objects.filter(id=page_id).first().specific
+    resume = Page.objects.filter(id=page_id).first()
 
-    resume_url = resume.full_url
-    name = slugify(resume.full_name)
-    font = resume.font
+    if not resume:
+        return HttpResponseNotFound('<h1>Page not found</h1>')
+
+    specific = resume.specific
+
+    resume_url = specific.full_url
+    name = slugify(specific.full_name)
+    font = specific.font
 
     response[
         "Content-Disposition"

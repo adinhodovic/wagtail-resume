@@ -125,7 +125,7 @@ a {
 }
 
 .section-title .fas, .section-title .fab {
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .pdf {
@@ -172,7 +172,11 @@ a {
 @media (max-width: 768px) {
 
   .section-title .fas, .section-title .fab {
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .section-title i {
+    margin-right: 0.4rem;
   }
 
   h2 {

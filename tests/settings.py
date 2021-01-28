@@ -16,7 +16,6 @@ DJANGO_APPS = [
 ]
 
 MIDDLEWARE = [
-    "wagtail.core.middleware.SiteMiddleware",
     "django.middleware.locale.LocaleMiddleware",
 ]
 

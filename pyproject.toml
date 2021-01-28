@@ -2,7 +2,7 @@
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "1.0.7"
+version = "1.1.0"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -26,6 +26,7 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
 ]
 
 [tool.poetry.dependencies]
@@ -81,7 +82,7 @@ wcwidth = "0.1.7"
 webencodings = "0.5.1"
 Willow = "1.3"
 wrapt = "1.11.2"
-mypy = "^0.770"
+mypy = "^0.800"
 django-stubs = "^1.5.0"
 django-model-utils = "^4.0.0"
 django-extensions = "^2.2.9"
@@ -90,3 +91,13 @@ jedi = "^0.17.0"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.isort]
+skip_glob = "**/migrations/*.py,**/fixtures/*.py"
+# https://github.com/psf/black/issues/251#issuecomment-535187912
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88

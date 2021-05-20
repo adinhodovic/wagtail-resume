@@ -2,7 +2,7 @@
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "1.1.1"
+version = "1.2.0"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -35,7 +35,7 @@ Django = ">=3.0.0"
 wagtail = ">=2.7"
 wagtail-markdown = ">=0.5"
 wagtail-metadata = ">=3.0.0"
-weasyprint = "^51"
+weasyprint = "^52"
 
 [tool.poetry.dev-dependencies]
 astroid = "2.4.0"

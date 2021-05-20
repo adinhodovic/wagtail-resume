@@ -43,7 +43,7 @@ def resume_pdf(request):
             response,
             stylesheets=[
                 # pylint: disable=line-too-long
-                f"https://fonts.googleapis.com/css?family={font}&display=swap"
+                f"https://fonts.googleapis.com/css2?family={font}&display=swap"
             ],
         )
     else:

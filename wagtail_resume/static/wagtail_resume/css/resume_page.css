@@ -74,8 +74,8 @@ a {
 .photo {
   padding-bottom: 1rem;
   padding-top: 1rem;
-  border-radius: 1rem;
-  width: 200px;
+  border-radius: 50%;
+  width: 250px;
 }
 
 .social-links img {

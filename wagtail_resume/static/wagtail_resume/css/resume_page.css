@@ -72,8 +72,8 @@ a {
 }
 
 .photo {
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
   border-radius: 50%;
   width: 250px;
 }
@@ -194,6 +194,6 @@ a {
 
   .photo {
     width: 45%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 }

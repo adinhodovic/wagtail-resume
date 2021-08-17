@@ -31,7 +31,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = ">=3.0.0"
-wagtail = "2.12"
+wagtail = "2.12.5"
 wagtail-markdown = "^0.7.0"
 wagtail-metadata = ">=3.0.0"
 weasyprint = "^52"

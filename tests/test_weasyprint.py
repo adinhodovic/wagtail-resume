@@ -55,6 +55,7 @@ def test_weasyprint_with_no_page_id(client, mocker):
     assert b"Missing page id for resume generation" in res.content
     assert res.status_code == 400
 
+
 def test_weasyprint_with_no_number(client, mocker):
     mocker.patch("wagtail_resume.views.HTML")
     site = Site.objects.first()
@@ -63,10 +64,11 @@ def test_weasyprint_with_no_number(client, mocker):
     )
     site.root_page.add_child(instance=resume)
     # Test random page pdf generation
-    url = f"{reverse('generate_resume_pdf')}?page_id={resume.id}\'"
+    url = f"{reverse('generate_resume_pdf')}?page_id={resume.id}'"
     res = client.get(url)
     assert b"Page id is not a number" in res.content
     assert res.status_code == 400
+
 
 def test_weasyprint_no_resume(client, mocker):
     mocker.patch("wagtail_resume.views.HTML")

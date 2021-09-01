@@ -2,7 +2,7 @@
 
 ![Lint](https://github.com/adinhodovic/wagtail-resume/workflows/Test/badge.svg)
 ![Test](https://github.com/adinhodovic/wagtail-resume/workflows/Lint/badge.svg)
-[![Coverage](https://codecov.io/gh/adinhodovic/wagtail-resume/branch/master/graphs/badge.svg)](https://codecov.io/gh/adinhodovic/wagtail-resume/branch/master)
+[![Coverage](https://codecov.io/gh/adinhodovic/wagtail-resume/branch/main/graphs/badge.svg)](https://codecov.io/gh/adinhodovic/wagtail-resume/branch/main)
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/wagtail-resume.svg)](https://pypi.org/project/wagtail-resume/)
 [![PyPI Version](https://img.shields.io/pypi/v/wagtail-resume.svg?style=flat)](https://pypi.org/project/wagtail-resume/)
 

@@ -42,7 +42,7 @@ class BaseResumePage(MetadataMixin, Page):
                     [
                         ("text", blocks.TextBlock()),
                         ("url", blocks.URLBlock()),
-                        ("logo", ImageChooserBlock()),
+                        ("logo", ImageChooserBlock(required=False)),
                     ],
                     icon="group",
                 ),

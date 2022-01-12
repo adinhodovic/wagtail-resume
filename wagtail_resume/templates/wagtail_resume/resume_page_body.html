@@ -38,7 +38,12 @@
                         {% for social_link in page.social_links %}
                         <div class="social-links">
                             <a class="social-link" href="{{ social_link.value.url }}">
+                                {% if social_link.value.logo %}
                                 {% image social_link.value.logo original %}
+                                <span>{{ social_link.value.text }}</span>
+                                {% else %}
+                                <span class="margin-0">{{ social_link.value.text }}</span>
+                                {% endif %}
                                 <span>{{ social_link.value.text }}</span>
                             </a>
                         </div>

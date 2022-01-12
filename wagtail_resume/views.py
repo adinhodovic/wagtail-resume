@@ -31,15 +31,10 @@ def resume_pdf(request):
 
     resume_url = specific.full_url
     name = slugify(specific.full_name)
+    date = datetime.datetime.now().strftime("%Y-%m-%d")
     font = specific.font
 
-    response[
-        "Content-Disposition"
-    ] = "inline; filename={name}-resume-{date}.pdf".format(
-        name=name,
-        date=datetime.datetime.now().strftime("%Y-%m-%d"),
-    )
-
+    response["Content-Disposition"] = f"inline; filename={name}-resume-{date}.pdf"
     if font:
         font = space_to_plus(font).title()
         HTML(url=resume_url).write_pdf(

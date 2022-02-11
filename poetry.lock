@@ -1120,8 +1120,8 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "ee9ac10a67729b3f0fc2588fd3e4ed81482afd072b8884956637b19eb96142d5"
+python-versions = "^3.8"
+content-hash = "a7bee9aafb3b664f690a20a12d6ed060657ec0126b3f135212fc8be400cb47d3"
 
 [metadata.files]
 anyascii = [

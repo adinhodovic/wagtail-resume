@@ -40,7 +40,7 @@ def resume_pdf(request):
         )
 
     authenticated = False
-    if "user" in request:
+    if hasattr(request, "user"):
         authenticated = request.user.is_authenticated
     if not authenticated and specific.pdf_generation_visibility == "authenticated":
         return HttpResponseForbidden(

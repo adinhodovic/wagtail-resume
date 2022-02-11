@@ -16,6 +16,7 @@ class WorkExperienceBlock(blocks.StructBlock):
                 ("role", blocks.CharBlock()),
                 ("company", blocks.CharBlock()),
                 ("url", blocks.URLBlock()),
+                ("location", blocks.CharBlock(required=False)),
                 ("from_date", blocks.DateBlock()),
                 ("to_date", blocks.DateBlock(required=False)),
                 (

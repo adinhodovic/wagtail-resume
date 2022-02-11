@@ -17,6 +17,7 @@ def test_weasyprint(client, mocker):
         title="Resume",
         full_name="Adin Hodovic",
         role="Software engineer",
+        pdf_generation_visibility="always",
     )
     site.root_page.add_child(instance=resume)
     # Test random page pdf generation
@@ -31,7 +32,11 @@ def test_weasyprint_with_font(client, mocker):
     mocker.patch("wagtail_resume.views.HTML")
     site = Site.objects.first()
     resume = CustomResumePage(
-        title="Resume", full_name="Adin Hodovic", role="Software engineer", font="lato"
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
+        font="lato",
+        pdf_generation_visibility="always",
     )
     site.root_page.add_child(instance=resume)
     # Test random page pdf generation
@@ -42,11 +47,50 @@ def test_weasyprint_with_font(client, mocker):
     assert res["content-type"] == "application/pdf"
 
 
+def test_weasyprint_unauthenticated(client, mocker):
+    mocker.patch("wagtail_resume.views.HTML")
+    site = Site.objects.first()
+    resume = CustomResumePage(
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
+        font="lato",
+        pdf_generation_visibility="authenticated",
+    )
+    site.root_page.add_child(instance=resume)
+    # Test random page pdf generation
+    url = f"{reverse('generate_resume_pdf')}?page_id={resume.id}"
+    res = client.get(url)
+    assert b"You need to be authenticated to generate a resume PDF file." in res.content
+    assert res.status_code == 403
+
+
+def test_weasyprint_disabled(client, mocker):
+    mocker.patch("wagtail_resume.views.HTML")
+    site = Site.objects.first()
+    resume = CustomResumePage(
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
+        font="lato",
+        pdf_generation_visibility="never",
+    )
+    site.root_page.add_child(instance=resume)
+    # Test random page pdf generation
+    url = f"{reverse('generate_resume_pdf')}?page_id={resume.id}"
+    res = client.get(url)
+    assert b"<h1>PDF generation is disabled for this resume.</h1>" in res.content
+    assert res.status_code == 400
+
+
 def test_weasyprint_with_no_page_id(client, mocker):
     mocker.patch("wagtail_resume.views.HTML")
     site = Site.objects.first()
     resume = CustomResumePage(
-        title="Resume", full_name="Adin Hodovic", role="Software engineer", font="lato"
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
+        font="lato",
     )
     site.root_page.add_child(instance=resume)
     # Test random page pdf generation
@@ -60,7 +104,10 @@ def test_weasyprint_with_no_number(client, mocker):
     mocker.patch("wagtail_resume.views.HTML")
     site = Site.objects.first()
     resume = CustomResumePage(
-        title="Resume", full_name="Adin Hodovic", role="Software engineer", font="lato"
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
+        font="lato",
     )
     site.root_page.add_child(instance=resume)
     # Test random page pdf generation
@@ -74,7 +121,10 @@ def test_weasyprint_no_resume(client, mocker):
     mocker.patch("wagtail_resume.views.HTML")
     site = Site.objects.first()
     resume = CustomResumePage(
-        title="Resume", full_name="Adin Hodovic", role="Software engineer", font="lato"
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
+        font="lato",
     )
     site.root_page.add_child(instance=resume)
     # Test non existent resume

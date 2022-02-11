@@ -46,3 +46,6 @@ def test_resume_preferences(client):
     template_body = soup.find("body")
     #  assert 'style="background: blue">' in str(template_body) TODO: Run test with media query pylint: disable=line-too-long
     assert "font-family: 'Lato'" in str(template_body)
+
+    template_generate_pdf = soup.find("a", {"class": "pdf"})
+    assert None is template_generate_pdf

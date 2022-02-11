@@ -64,7 +64,10 @@
             {% for block in page.resume %}
             {{ block }}
             {% endfor %}
+
+            {% if page.pdf_generation_visibility == "always" or user.is_authenticated and page.pdf_generation_visibility == "authenticated" %}
             <a class="pdf" href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}">{% trans "Get PDF" %}</a>
+            {% endif %}
         </div>
     </div>
 </body>

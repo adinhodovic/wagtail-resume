@@ -29,6 +29,20 @@ class BaseResumePage(MetadataMixin, Page):
 
     full_name = models.CharField(max_length=100, null=True, blank=True)
 
+    pdf_generation_visibility = models.CharField(
+        choices=(
+            ("always", "Always visible"),
+            ("authenticated", "Only logged in users"),
+            ("never", "Never visible"),
+        ),
+        default="authenticated",
+        help_text="""
+            PDF generation is a heavy blocking operation,
+            so it is recommended to only show it to logged in users. If available to everyone, ensure that you have multiple workers running.
+        """,
+        max_length=64,
+    )
+
     role = models.CharField(max_length=100, null=True, blank=True)
     about = MarkdownField(max_length=2500, null=True, blank=True)
     photo = models.ForeignKey(
@@ -68,6 +82,7 @@ class BaseResumePage(MetadataMixin, Page):
             [
                 FieldPanel("font"),
                 FieldPanel("background_color"),
+                FieldPanel("pdf_generation_visibility"),
             ],
             heading="Customization",
         ),

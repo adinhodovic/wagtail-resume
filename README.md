@@ -109,5 +109,6 @@ Wagtail-resume currently supports 4 customizations:
 - Icon for a section (Fontawesome)
 - Font style
 - Background color
+- PDF generation button visibility (public, authenticated, disabled)
 
 The background-color should be specified in hex (e.g #FFFFFF) or [css supported colors](https://www.w3schools.com/cssref/css_colors.asp) and the font should be available on Google fonts. The fonts supported are only the ones from [Google Fonts](https://fonts.google.com/) so make sure to check what fonts are available.

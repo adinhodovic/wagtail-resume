@@ -13,6 +13,7 @@ def test_translations(client):
         title="Resume",
         full_name="Adin Hodovic",
         role="Software engineer",
+        pdf_generation_visibility="always",
     )
     site.root_page.add_child(instance=resume)
     content = client.get(resume.full_url, HTTP_ACCEPT_LANGUAGE="sv").content.decode(

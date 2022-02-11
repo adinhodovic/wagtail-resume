@@ -1,7 +1,12 @@
 import datetime
 import logging
 
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
+from django.http import (
+    HttpResponse,
+    HttpResponseBadRequest,
+    HttpResponseForbidden,
+    HttpResponseNotFound,
+)
 from django.utils.text import slugify
 from wagtail.core.models import Page
 from weasyprint import HTML
@@ -28,6 +33,19 @@ def resume_pdf(request):
         return HttpResponseNotFound("<h1>Page not found</h1>")
 
     specific = resume.specific
+
+    if specific.pdf_generation_visibility == "never":
+        return HttpResponseBadRequest(
+            "<h1>PDF generation is disabled for this resume.</h1>"
+        )
+
+    authenticated = False
+    if "user" in request:
+        authenticated = request.user.is_authenticated
+    if not authenticated and specific.pdf_generation_visibility == "authenticated":
+        return HttpResponseForbidden(
+            "<h1>You need to be authenticated to generate a resume PDF file.</h1>"
+        )
 
     resume_url = specific.full_url
     name = slugify(specific.full_name)

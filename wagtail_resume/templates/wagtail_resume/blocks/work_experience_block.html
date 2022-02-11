@@ -6,6 +6,9 @@
 <span class="work-experience-heading"><b>{{ experience.role }}</b> - <a href="{{ experience.url }}">{{ experience.company }}</a></span>
 <a href="{{ experience.url }}">{{ role.experience }}</a>
 <p class="date">
+  {% if experience.location %}
+    <b>{{ experience.location }},&nbsp;</b>
+  {% endif %}
   {{ experience.from_date }} - {% if experience.currently_working_here %}<b>{% trans "Present" %}</b>{% else %}{{ experience.to_date }}{% endif %}
 </p>
 <p>

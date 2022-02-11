@@ -4,6 +4,8 @@ import pytest
 from django.urls import reverse
 from wagtail.core.models import Site
 
+from wagtail_resume.views import resume_pdf
+
 from .models import CustomResumePage
 
 pytestmark = pytest.mark.django_db
@@ -63,6 +65,33 @@ def test_weasyprint_unauthenticated(client, mocker):
     res = client.get(url)
     assert b"You need to be authenticated to generate a resume PDF file." in res.content
     assert res.status_code == 403
+
+
+def test_weasyprint_authenticated(rf, django_user_model, mocker):
+    mocker.patch("wagtail_resume.views.HTML")
+    site = Site.objects.first()
+    resume = CustomResumePage(
+        title="Resume",
+        full_name="Adin Hodovic",
+        role="Software engineer",
+        font="lato",
+        pdf_generation_visibility="authenticated",
+    )
+    site.root_page.add_child(instance=resume)
+    # Test random page pdf generation
+    url = f"{reverse('generate_resume_pdf')}?page_id={resume.id}"
+    request = rf.get(url)
+    username = "user1"
+    password = "bar"
+    user = django_user_model.objects.create_user(username=username, password=password)
+
+    request.user = user
+
+    res = resume_pdf(request)
+    print(res)
+    assert "adin-hodovic" in res["content-disposition"]
+    assert res.status_code == 200
+    assert res["content-type"] == "application/pdf"
 
 
 def test_weasyprint_disabled(client, mocker):

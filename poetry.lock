@@ -231,7 +231,7 @@ python-versions = "*"
 
 [[package]]
 name = "django"
-version = "3.2.12"
+version = "4.0.5"
 description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
@@ -970,7 +970,7 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 
 [[package]]
 name = "wagtail"
-version = "2.16.1"
+version = "3.0.1"
 description = "A Django content management system."
 category = "main"
 optional = false

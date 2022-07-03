@@ -15,7 +15,7 @@ jobs:
       max-parallel: 3
       matrix:
         python-version: [3.9, '3.10']
-        dj-version: [django31]
+        dj-version: [django32, django40]
 
     steps:
       - name: Install gettext

@@ -2,7 +2,7 @@
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "2.0.0"
+version = "2.0.1"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -37,7 +37,7 @@ classifiers = [
 python = "^3.8"
 Django = "^3.2.0 || ^4.0.0"
 wagtail = "^2.16.0 || ^3.0.0"
-wagtail-markdown = "^0.7.0"
+wagtail-markdown = "^0.8 || ^0.9"
 wagtail-metadata = "^3.0.0 || ^4.0.0"
 weasyprint = "^52"
 

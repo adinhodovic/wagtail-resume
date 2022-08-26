@@ -11,7 +11,7 @@ Wagtail-resume is a reusable Wagtail page model designed to make the creation of
 Feaures:
 
 - Easy management of your resume in Wagtail
-- Search engine optimized using HTML meta tags - make it easier to find your resume in Google
+- Search engine optimized using HTML meta [tags](https://www.scaler.com/topics/html/html-tags/) - make it easier to find your resume in Google
 - Flexible section creation of projects, blog posts, etc
 - Easy customizations of font, icons and background color
 - Easily reference other content on your Wagtail page as blog posts

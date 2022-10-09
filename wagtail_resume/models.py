@@ -1,10 +1,9 @@
 from django.db import models
 from django.utils.text import Truncator
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.core import blocks, fields
 from wagtail.core.models import Page
 from wagtail.images.blocks import ImageChooserBlock
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.models import Image
 from wagtailmarkdown.edit_handlers import MarkdownPanel
 from wagtailmarkdown.fields import MarkdownField
@@ -38,7 +37,8 @@ class BaseResumePage(MetadataMixin, Page):
         default="authenticated",
         help_text="""
             PDF generation is a heavy blocking operation,
-            so it is recommended to only show it to logged in users. If available to everyone, ensure that you have multiple workers running.
+            so it is recommended to only show it to logged in users.
+            If available to everyone, ensure that you have multiple workers running.
         """,
         max_length=64,
     )
@@ -64,6 +64,7 @@ class BaseResumePage(MetadataMixin, Page):
         ],
         null=True,
         blank=True,
+        use_json_field=True,
     )
 
     resume = fields.StreamField(
@@ -75,6 +76,7 @@ class BaseResumePage(MetadataMixin, Page):
         ],
         null=True,
         blank=True,
+        use_json_field=True,
     )
 
     content_panels = Page.content_panels + [
@@ -91,12 +93,12 @@ class BaseResumePage(MetadataMixin, Page):
                 FieldPanel("full_name"),
                 FieldPanel("role"),
                 MarkdownPanel("about"),
-                ImageChooserPanel("photo"),
-                StreamFieldPanel("social_links"),
+                FieldPanel("photo"),
+                FieldPanel("social_links"),
             ],
             heading="Personal details",
         ),
-        StreamFieldPanel("resume"),
+        FieldPanel("resume"),
     ]
 
     def get_template(self, request):  # pylint: disable=arguments-differ

@@ -42,6 +42,7 @@ jobs:
       matrix:
         python-version: [3.9, '3.10']
         dj-version: [django32, django40]
+        wagtail-version: [wagtail40, wagtail50]
     steps:
       - name: Install gettext
         run: sudo apt-get install gettext
@@ -69,7 +70,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
           flags: unittests
-          name: ${{ matrix.python-version }}-${{ matrix.dj-version }}
+          name: ${{ matrix.python-version }}-${{ matrix.dj-version }}-${{ matrix.wagtail-version }}
           yml: ./codecov.yml
 
   release:

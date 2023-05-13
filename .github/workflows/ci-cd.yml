@@ -40,9 +40,16 @@ jobs:
     strategy:
       max-parallel: 3
       matrix:
-        python-version: [3.9, 3.10']
+        python-version: [3.9, '3.10']
         dj-version: [django32, django42]
-        wagtail-version: [wagtail40,wagtail50]
+        wagtail-version: [wagtail40, wagtail50]
+        exclude:
+          - python-version: 3.9
+            dj-version: django32
+            wagtail-version:  wagtail50
+          - python-version: 3.10
+            dj-version: django32
+            wagtail-version:  wagtail50
     steps:
       - name: Install gettext
         run: sudo apt-get install gettext

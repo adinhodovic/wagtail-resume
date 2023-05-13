@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.text import Truncator
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
-from wagtail.core import blocks, fields
-from wagtail.core.models import Page
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail import blocks, fields
+from wagtail.models import Page
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.models import Image
 from wagtailmarkdown.edit_handlers import MarkdownPanel

@@ -2,7 +2,7 @@
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "2.1.1"
+version = "2.2.0"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -18,8 +18,8 @@ classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
   "Framework :: Wagtail",
-  "Framework :: Wagtail :: 3",
   "Framework :: Wagtail :: 4",
+  "Framework :: Wagtail :: 5",
   "Framework :: Django",
   "Framework :: Django :: 3.2",
   "Framework :: Django :: 4.0",
@@ -28,16 +28,15 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 Django = "^3.2.0 || ^4.0.0"
-wagtail = "^3.0.0 || ^4.0.0"
-wagtail-markdown = "^0.10"
+wagtail = "^4.0.0 || ^5.0.0"
+wagtail-markdown = "^0.10 || ^0.11"
 wagtail-metadata = "^3.0.0 || ^4.0.0"
 weasyprint = "^52"
 

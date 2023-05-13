@@ -2,7 +2,7 @@ import logging
 
 import pytest
 from django.urls import reverse
-from wagtail.core.models import Site
+from wagtail.models import Site
 
 from wagtail_resume.views import resume_pdf
 

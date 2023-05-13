@@ -1,5 +1,5 @@
 import pytest
-from wagtail.core.models import Site
+from wagtail.models import Site
 
 from .models import CustomResumePage
 

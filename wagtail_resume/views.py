@@ -8,7 +8,7 @@ from django.http import (
     HttpResponseNotFound,
 )
 from django.utils.text import slugify
-from wagtail.core.models import Page
+from wagtail.models import Page
 from weasyprint import HTML
 
 from wagtail_resume.templatetags.wagtail_resume_extras import space_to_plus

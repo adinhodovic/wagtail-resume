@@ -1,5 +1,5 @@
 # pylint: disable=R0903,C0301
-from wagtail.core import blocks
+from wagtail import blocks
 from wagtailmarkdown.blocks import MarkdownBlock
 
 

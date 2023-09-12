@@ -31,7 +31,7 @@
                     <h2 class="name">{{ page.full_name }}</h2>
 
                     {% if page.role %}
-                    <h4 class="role">{{ page.role }}</h4>
+                    <h2 class="mt-0 role">{{ page.role }}</h2>
                     {% endif %}
 
                     <div class="social-links">
@@ -55,7 +55,13 @@
             </div>
 
             <div>
-                <h2 class="section-title"><i class="fas fa-info-circle mr-3"></i><span>{% trans "About" %}</span></h2>
+              <h2 class="section-title">
+                {% if page.about_icon %}
+                  <i class="{{ page.about_icon }}"></i>
+                {% endif %}
+                <span>{% trans "About" %}</span>
+                </h2>
+                <hr>
                 <p class="about">
                     {{ page.about | markdown }}
                 </p>

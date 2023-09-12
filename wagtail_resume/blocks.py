@@ -9,7 +9,7 @@ class WorkExperienceBlock(blocks.StructBlock):
         icon = "doc-full-inverse"
 
     heading = blocks.CharBlock(default="Work experience")
-    fa_icon = blocks.CharBlock(default="fas fa-tools")
+    fa_icon = blocks.CharBlock(default="fas fa-tools", required=False)
     experiences = blocks.ListBlock(
         blocks.StructBlock(
             [
@@ -39,7 +39,7 @@ class WritingsBlock(blocks.StructBlock):
         icon = "edit"
 
     heading = blocks.CharBlock(default="Writing")
-    fa_icon = blocks.CharBlock(default="fas fa-pencil-alt")
+    fa_icon = blocks.CharBlock(default="fas fa-pencil-alt", required=False)
     posts = blocks.StreamBlock(
         [
             (
@@ -70,7 +70,7 @@ class ContributionsBlock(blocks.StructBlock):
         icon = "code"
 
     heading = blocks.CharBlock(default="Contributions")
-    fa_icon = blocks.CharBlock(default="fas fa-code-branch")
+    fa_icon = blocks.CharBlock(default="fas fa-code-branch", required=False)
     contributions = blocks.ListBlock(
         blocks.StructBlock(
             [
@@ -89,7 +89,7 @@ class EducationBlock(blocks.StructBlock):
         icon = "doc-full-inverse"
 
     heading = blocks.CharBlock(default="Education")
-    fa_icon = blocks.CharBlock(default="fas fa-graduation-cap")
+    fa_icon = blocks.CharBlock(default="fas fa-graduation-cap", required=False)
     educations = blocks.StreamBlock(
         [
             (

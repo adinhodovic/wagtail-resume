@@ -22,7 +22,7 @@ def test_template(client):
     template_name = soup.find("h2", {"class": "name"}).string
     assert template_name == full_name
 
-    template_role = soup.find("h4", {"class": "role"}).string
+    template_role = soup.find("h2", {"class": "role"}).string
     assert template_role == role
 
     template_about = soup.find("p", {"class": "about"})

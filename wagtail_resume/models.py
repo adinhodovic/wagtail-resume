@@ -45,6 +45,9 @@ class BaseResumePage(MetadataMixin, Page):
 
     role = models.CharField(max_length=100, null=True, blank=True)
     about = MarkdownField(max_length=2500, null=True, blank=True)
+    about_icon = models.CharField(
+        max_length=50, default="fas fa-tools", null=True, blank=True
+    )
     photo = models.ForeignKey(
         Image, null=True, blank=True, on_delete=models.SET_NULL, related_name="+"
     )
@@ -93,6 +96,7 @@ class BaseResumePage(MetadataMixin, Page):
                 FieldPanel("full_name"),
                 FieldPanel("role"),
                 MarkdownPanel("about"),
+                FieldPanel("about_icon"),
                 FieldPanel("photo"),
                 FieldPanel("social_links"),
             ],

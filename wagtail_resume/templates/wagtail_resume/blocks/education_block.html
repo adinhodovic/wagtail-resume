@@ -1,7 +1,11 @@
 {% load i18n %}
 {% load wagtailcore_tags %}
 
-<h2 class="section-title"><i class="{{ value.fa_icon }} mr-3"></i><span>{{ value.heading }}</span></h2>
+<h2 class="section-title">
+  {% if value.fa_icon %}<i class="{{ value.fa_icon }}"></i>{% endif %}
+  <span>{{ value.heading }}</span>
+</h2>
+<hr>
 {% for education in value.educations %}
 {% if education.block_type == "degree" %}
 {% with education.value as degree %}

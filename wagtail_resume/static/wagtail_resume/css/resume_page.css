@@ -4,23 +4,36 @@ body {
 }
 
 p {
-  line-height: 1.4;
-  font-size: 0.95rem
+  line-height: 1.5;
+  font-size: 1rem
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 1.7rem;
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
-h4 {
-  font-size: 1.4rem;
-  font-weight: 400;
+hr {
+  border-color: #fdfcfc;
+  border-width: 0.1px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.role {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.mt-0 {
+  margin-top: 0rem;
+}
+
+.mb-0 {
+  margin-bottom: 0rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 
 .name {
@@ -37,7 +50,7 @@ h4 {
 }
 
 .work-experience-heading, .contribution-title {
-  font-size: 1.05rem;
+  font-size: 1.10rem;
 }
 
 .resume {
@@ -53,7 +66,7 @@ img {
 }
 
 a {
-  color: #007bff;
+  color: #4652F6;
   text-decoration: none;
   background-color: transparent;
 }
@@ -89,8 +102,7 @@ a {
 }
 
 .date {
-  color: grey;
-  font-size: 0.8rem;
+  color: #5b5b55;
 }
 
 .text {
@@ -98,8 +110,8 @@ a {
 }
 
 .section-title {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #B0B0B0;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
   align-items: center;
 }
 

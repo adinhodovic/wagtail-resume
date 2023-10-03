@@ -17,7 +17,7 @@ from .blocks import (
 )
 
 
-class BaseResumePage(MetadataMixin, Page):
+class BaseResumePage(MetadataMixin, Page):  # pylint: disable=too-many-ancestors
     page_ptr = models.OneToOneField(
         Page, parent_link=True, related_name="+", on_delete=models.CASCADE
     )

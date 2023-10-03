@@ -22,51 +22,54 @@ classifiers = [
   "Framework :: Wagtail :: 5",
   "Framework :: Django",
   "Framework :: Django :: 3.2",
-  "Framework :: Django :: 4.0",
+  "Framework :: Django :: 4.2",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 Django = "^3.2.0 || ^4.0.0"
 wagtail = "^4.0.0 || ^5.0.0"
 wagtail-markdown = "^0.10 || ^0.11"
 wagtail-metadata = "^3.0.0 || ^4.0.0"
 weasyprint = "^52"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "^22.6.0"
 isort = "5.5.2"
 pylint-plugin-utils = "0.7"
 tox = "^3.14.3"
 coverage = "^5.0.2"
-pytest = "^5.3.2"
-pytest-cov = "^2.8.1"
-pytest-django = "^3.7.0"
-pytest-clarity = "^0.2.0-alpha.1"
-pytest-mock = "^3.0.0"
 django-stubs = "^1.5.0"
 django-model-utils = "^4.0.0"
 django-extensions = "^2.2.9"
 jedi = "^0.17.0"
 mypy = "^0.910"
-
-[tool.poetry.group.dev.dependencies]
 pylint = "^2.17.5"
 pylint-django = "^2.5.3"
+pytest = "^7.4.2"
+pytest-cov = "^2.8.1"
+pytest-django = "^4.5.2"
+pytest-clarity = "^1.0.1"
+pytest-mock = "^3.0.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+addopts = "--ds=tests.settings"
+python_files = "tests.py test_*.py"
+norecursedirs = "node_modules .venv"
+
 [tool.isort]
-skip_glob = "**/migrations/*.py,**/fixtures/*.py"
+skip_glob = "**/migrations/*.py,**/fixtures/*.py,infra/**/*.py"
 # https://github.com/psf/black/issues/251#issuecomment-535187912
 multi_line_output = 3
 include_trailing_comma = true
@@ -75,5 +78,26 @@ use_parentheses = true
 ensure_newline_before_comments = true
 line_length = 88
 
-[tool.black]
-exclude = ".*(venv|virtualenv|migrations|.db|.poetry|.poetry-cache|.tox)"
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+plugins = ["mypy_django_plugin.main"]
+exclude = [".venv","migrations.*"]
+
+[tool.django-stubs]
+django_settings_module = "tests.settings"
+
+[tool.pylint.'MASTER']
+load-plugins = "pylint_django"
+django-settings-module = "tests.settings"
+ignore = "migrations"
+
+[tool.pylint.'FORMAT']
+max-line-length = 120
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "missing-docstring,invalid-name"

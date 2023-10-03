@@ -94,6 +94,7 @@ django_settings_module = "tests.settings"
 [tool.pylint.'MASTER']
 load-plugins = "pylint_django"
 django-settings-module = "tests.settings"
+ignore = "migrations"
 
 [tool.pylint.'FORMAT']
 max-line-length = 120

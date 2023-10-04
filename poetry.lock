@@ -782,21 +782,22 @@ requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "jedi"
-version = "0.17.2"
+version = "0.19.1"
 description = "An autocompletion tool for Python that can be used for text editors."
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+python-versions = ">=3.6"
 files = [
-    {file = "jedi-0.17.2-py2.py3-none-any.whl", hash = "sha256:98cc583fa0f2f8304968199b01b6b4b94f469a1f4a74c1560506ca2a211378b5"},
-    {file = "jedi-0.17.2.tar.gz", hash = "sha256:86ed7d9b750603e4ba582ea8edc678657fb4007894a12bcf6f4bb97892f31d20"},
+    {file = "jedi-0.19.1-py2.py3-none-any.whl", hash = "sha256:e983c654fe5c02867aef4cdfce5a2fbb4a50adc0af145f70504238f18ef5e7e0"},
+    {file = "jedi-0.19.1.tar.gz", hash = "sha256:cf0496f3651bc65d7174ac1b7d043eff454892c708a87d1b683e57b569927ffd"},
 ]
 
 [package.dependencies]
-parso = ">=0.7.0,<0.8.0"
+parso = ">=0.8.3,<0.9.0"
 
 [package.extras]
-qa = ["flake8 (==3.7.9)"]
-testing = ["Django (<3.1)", "colorama", "docopt", "pytest (>=3.9.0,<5.0.0)"]
+docs = ["Jinja2 (==2.11.3)", "MarkupSafe (==1.1.1)", "Pygments (==2.8.1)", "alabaster (==0.7.12)", "babel (==2.9.1)", "chardet (==4.0.0)", "commonmark (==0.8.1)", "docutils (==0.17.1)", "future (==0.18.2)", "idna (==2.10)", "imagesize (==1.2.0)", "mock (==1.0.1)", "packaging (==20.9)", "pyparsing (==2.4.7)", "pytz (==2021.1)", "readthedocs-sphinx-ext (==2.1.4)", "recommonmark (==0.5.0)", "requests (==2.25.1)", "six (==1.15.0)", "snowballstemmer (==2.1.0)", "sphinx (==1.8.5)", "sphinx-rtd-theme (==0.4.3)", "sphinxcontrib-serializinghtml (==1.1.4)", "sphinxcontrib-websupport (==1.2.4)", "urllib3 (==1.26.4)"]
+qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
+testing = ["Django", "attrs", "colorama", "docopt", "pytest (<7.0.0)"]
 
 [[package]]
 name = "jsbeautifier"
@@ -1029,17 +1030,18 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 
 [[package]]
 name = "parso"
-version = "0.7.1"
+version = "0.8.3"
 description = "A Python Parser"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+python-versions = ">=3.6"
 files = [
-    {file = "parso-0.7.1-py2.py3-none-any.whl", hash = "sha256:97218d9159b2520ff45eb78028ba8b50d2bc61dcc062a9682666f2dc4bd331ea"},
-    {file = "parso-0.7.1.tar.gz", hash = "sha256:caba44724b994a8a5e086460bb212abc5a8bc46951bf4a9a1210745953622eb9"},
+    {file = "parso-0.8.3-py2.py3-none-any.whl", hash = "sha256:c001d4636cd3aecdaf33cbb40aebb59b094be2a74c556778ef5576c175e19e75"},
+    {file = "parso-0.8.3.tar.gz", hash = "sha256:8c07be290bb59f03588915921e29e8a50002acaf2cdc5fa0e0114f91709fafa0"},
 ]
 
 [package.extras]
-testing = ["docopt", "pytest (>=3.0.7)"]
+qa = ["flake8 (==3.8.3)", "mypy (==0.782)"]
+testing = ["docopt", "pytest (<6.0.0)"]
 
 [[package]]
 name = "pathspec"
@@ -1162,6 +1164,26 @@ files = [
     {file = "pprintpp-0.4.0-py2.py3-none-any.whl", hash = "sha256:b6b4dcdd0c0c0d75e4d7b2f21a9e933e5b2ce62b26e1a54537f9651ae5a5c01d"},
     {file = "pprintpp-0.4.0.tar.gz", hash = "sha256:ea826108e2c7f49dc6d66c752973c3fc9749142a798d6b254e1e301cfdbc6403"},
 ]
+
+[[package]]
+name = "pudb"
+version = "2022.1.3"
+description = "A full-screen, console-based Python debugger"
+optional = false
+python-versions = "~=3.6"
+files = [
+    {file = "pudb-2022.1.3.tar.gz", hash = "sha256:58e83ada9e19ffe92c1fdc78ae5458ef91aeb892a5b8f0e7379e6fa61e0e664a"},
+]
+
+[package.dependencies]
+jedi = ">=0.18,<1"
+packaging = ">=20.0"
+pygments = ">=2.7.4"
+urwid = ">=1.1.1"
+urwid_readline = "*"
+
+[package.extras]
+completion = ["shtab"]
 
 [[package]]
 name = "py"
@@ -1796,6 +1818,66 @@ secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "p
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "urwid"
+version = "2.2.2"
+description = "A full-featured console (xterm et al.) user interface library"
+optional = false
+python-versions = ">=3.7.0"
+files = [
+    {file = "urwid-2.2.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3d3859a4c7eedc9d4adc4e4fa1e9f8b82047b1441a2b5957a4ecb8b2077dab1c"},
+    {file = "urwid-2.2.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:702eb91a4989d4d9600618e00ac50f9f68b0ab32313f0acec9a559a1044c1fa6"},
+    {file = "urwid-2.2.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:ae2ec1032040c3a92cddede7b7262955595e7d0e4e8ae5a21dc4674eb3f6724b"},
+    {file = "urwid-2.2.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:65c705f515c1336dd2d75accd90bc6d446c985fc70819628c55a16afe923d7f9"},
+    {file = "urwid-2.2.2-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c21f797f87b8fcfb72ef1660b3845658878da2e621606b229f9d5f14cc98a4e2"},
+    {file = "urwid-2.2.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2b9b57a0a6f3ad109ba085a1a0a0153d098e950abe5f09a6bcd2f52346cb2d6e"},
+    {file = "urwid-2.2.2-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:a6b71f1bd7c7e356ca401bf193c760ac9bc482630dd4dedbde0795263b54eba4"},
+    {file = "urwid-2.2.2-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:533f9d2ee0cd4ecb7b7ea54607bb201ac6075c42c0da57b67120140fa1b1a548"},
+    {file = "urwid-2.2.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:b8cde689f8f4b8d3c62168f53d2fe6701bcc5fb831b37488c4f93bd57bfebe3d"},
+    {file = "urwid-2.2.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2aa84103b292eadd4583227edea1c7c83e77d40c1981e356d2e4f08da106aaa9"},
+    {file = "urwid-2.2.2-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e98e68f2c44a9e19fa3ef68fed381d7b1f20aee572a63f37f3062c0c6096bab6"},
+    {file = "urwid-2.2.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ca3c2258357c046eb7877067e22f70bf0921341233b245b7e69cbb38ec55f6e5"},
+    {file = "urwid-2.2.2-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:e7d6f62411e72876e67de22085fe4e8426519eb39bd9473724c7c421518f2e2e"},
+    {file = "urwid-2.2.2-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:9590a8fd47152569ae3968fee437b10035d30b2e3ce6f916bf2f46a0db8589eb"},
+    {file = "urwid-2.2.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:aca2dc1b79214adcddce7c839c8b47ba405cc2040d210955d40cd8751a6c2b62"},
+    {file = "urwid-2.2.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b6c3c39ac47377105c699d685226deb2b02e982ac411c9e184e14a42dd2465de"},
+    {file = "urwid-2.2.2-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:caca9d3d5b6a3a723dc7147fbaf03c1444ce7d381e3ee43169b55ba0b680dd23"},
+    {file = "urwid-2.2.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:53fef75a592538845c3ac46084ab0346d026cb0662506f20b932f2e29565df68"},
+    {file = "urwid-2.2.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:13d27499364037417a485b8a78e90a655d09bbfe7a09fd625e258f5d402ad35c"},
+    {file = "urwid-2.2.2-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:436a50b750583b0be3a20e90c141a5241967c38119b50f7fa1d22221b2ff8e1d"},
+    {file = "urwid-2.2.2-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:f1016dafdac1cb5a45f8339e5b684a2f07df15aca8b469bf0941c1724c1fb950"},
+    {file = "urwid-2.2.2-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:15bda7bb0edc524429ae286a70407e30e5c474c0153e9c64c4acd82171634af5"},
+    {file = "urwid-2.2.2-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:d8ecac6d1a20932e2ff25a3de2b87c672dab41bbc36db87c5c2197f026d12ca8"},
+    {file = "urwid-2.2.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:de67e51605645a0bb17564b2c5f6406dcb41ddbb502d5ec682b5a4846d2844fd"},
+    {file = "urwid-2.2.2-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:83bed43a2741101f5875b2cb6470ebbb491d1c2488f481a86921d167d9ff591b"},
+    {file = "urwid-2.2.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0e142752c40186fc3e7435cb4a215679099ed718a041e5a0b19b0f71f7382073"},
+    {file = "urwid-2.2.2-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:8ea07e35ee311f19da9424c652e831add974694929a25fd265189782502f1c5c"},
+    {file = "urwid-2.2.2-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4a889f91969a9888dfcf8c12d8a1cbc0cb6b1944920097ef06c76c464032a8c8"},
+    {file = "urwid-2.2.2-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:9ade5dfd25ca26dff6bba53bd4b0137f793ab9f2db545eb18298591356f601ea"},
+    {file = "urwid-2.2.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:32b4fd0031cdb16a1b3868b55fac9d47a6c266f1fad63ceaf31396acad330046"},
+    {file = "urwid-2.2.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:219650cb7f921e2a92af779eab9a9d1b12a099f5f769705403f031b41a954c5d"},
+    {file = "urwid-2.2.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:447794999d5d0b5001ac711dab77548d26e78c6f74046369ec7b4147a39deee2"},
+    {file = "urwid-2.2.2-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:1e20ab476761c18b48f89ff5e6cb17fb69046a87de7f7830634f96180434b798"},
+    {file = "urwid-2.2.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:708b330ef90a239ddcb3633e3b16f3f8339de02d4d9f414dabfdf2f82ae8e445"},
+    {file = "urwid-2.2.2.tar.gz", hash = "sha256:5f83b241c1cbf3ec6c4b8c6b908127e0c9ad7481c5d3145639524157fc4e1744"},
+]
+
+[[package]]
+name = "urwid-readline"
+version = "0.13"
+description = "A textbox edit widget for urwid that supports readline shortcuts"
+optional = false
+python-versions = "*"
+files = [
+    {file = "urwid_readline-0.13.tar.gz", hash = "sha256:018020cbc864bb5ed87be17dc26b069eae2755cb29f3a9c569aac3bded1efaf4"},
+]
+
+[package.dependencies]
+urwid = "*"
+
+[package.extras]
+dev = ["black", "pytest"]
+
+[[package]]
 name = "virtualenv"
 version = "20.16.5"
 description = "Virtual Python Environment builder"
@@ -2021,4 +2103,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "8a273da4856e82f6cca124a2445034bfc6fa90c2679ba17aa2715549ddfc7df5"
+content-hash = "aebe45b7341e3698e48f54a168d30b17ce9ae46b8822e08d20b4209168ab4cb5"

@@ -95,6 +95,11 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment: release
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+      contents: read
     if: github.event_name == 'release'
     needs:
       - lint

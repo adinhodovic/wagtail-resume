@@ -3,13 +3,38 @@ from wagtail import blocks
 from wagtailmarkdown.blocks import MarkdownBlock
 
 
-class WorkExperienceBlock(blocks.StructBlock):
+class WorkExperienceBlock(blocks.StructBlock):  # pragma: no cover
     class Meta:
         template = "wagtail_resume/blocks/work_experience_block.html"
         icon = "doc-full-inverse"
 
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value)
+        max_exp = context["self"]["maximum_experiences_displayed"]
+        experiences = context["self"]["experiences"]
+        for index, experience in enumerate(experiences):
+            if experience["hidden"] is True:
+                experiences.pop(index)
+        if max_exp > 0:
+            exp_len = len(experiences)
+            # Can't slice Wagtail's ListValue
+            for _ in range(exp_len - max_exp):
+                experiences.pop()
+
+        context["self"]["experiences"] = experiences
+        return context
+
     heading = blocks.CharBlock(default="Work experience")
     fa_icon = blocks.CharBlock(default="fas fa-tools", required=False)
+    maximum_experiences_displayed = blocks.IntegerBlock(
+        default=0,
+        required=False,
+        help_text="Set to 0 to show all experiences, otherwise set the maximum number of experiences to show.",
+    )
+    maximum_experiences_user_text = blocks.CharBlock(
+        default="Only showing the most recent work experiences. All experiences can be shared on request.",
+        required=False,
+    )
     experiences = blocks.ListBlock(
         blocks.StructBlock(
             [

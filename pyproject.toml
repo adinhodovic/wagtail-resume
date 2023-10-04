@@ -2,7 +2,7 @@
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "2.3.0"
+version = "2.4.0"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -58,6 +58,7 @@ pytest-cov = "^2.8.1"
 pytest-django = "^4.5.2"
 pytest-clarity = "^1.0.1"
 pytest-mock = "^3.0.0"
+djlint = "^1.34.0"
 
 [build-system]
 requires = ["poetry-core"]

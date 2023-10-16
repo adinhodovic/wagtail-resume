@@ -14,18 +14,19 @@ on:
       - reopened
       - synchronize
       - edited
+  pull_request_target:
+    types: [opened, reopened, synchronize]
 
 permissions:
-  contents: write  # for release-drafter/release-drafter to create a github release
-  pull-requests: write  # for release-drafter/release-drafter to add label to PR
+  contents: write # for release-drafter/release-drafter to create a github release
+  pull-requests: write # for release-drafter/release-drafter to add label to PR
 
 jobs:
   update_pr_labels:
     name: Update PR Labels
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
     runs-on: ubuntu-latest
     steps:
-
       - uses: release-drafter/release-drafter@v5
         with:
           disable-autolabeler: false
@@ -40,7 +41,6 @@ jobs:
     env:
       PUBLISH_DRAFT: false
     steps:
-
       - name: Check if a version is cut
         if: "contains(github.event.head_commit.message, 'chore(prerelease): Cut Version')"
         run: |

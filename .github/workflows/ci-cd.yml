@@ -1,7 +1,7 @@
 ---
 name: CI/CD
 
-on:  # yamllint disable-line rule:truthy
+on: # yamllint disable-line rule:truthy
   pull_request:
     branches:
       - main
@@ -16,7 +16,6 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-
       - uses: actions/checkout@v3
 
       - name: Set up Python
@@ -88,7 +87,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
           flags: unittests
-          name: ${{ matrix.python-version }}-${{ matrix.dj-version }}-${{ matrix.wagtail-version }}  # yamllint disable-line rule:line-length
+          name: ${{ matrix.python-version }}-${{ matrix.dj-version }}-${{ matrix.wagtail-version }} # yamllint disable-line rule:line-length
           yml: ./codecov.yml
 
   release:

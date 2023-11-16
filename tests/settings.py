@@ -68,3 +68,5 @@ LANGUAGES = (
 SITE_ID = 1
 
 WAGTAIL_SITE_NAME = "My Example Site"
+
+USE_TZ = False

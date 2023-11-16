@@ -72,7 +72,7 @@ norecursedirs = ".git */migrations/* */static/* venv .venv .poetry .virtualenv n
 
 [tool.black]
 skip_numeric_underscore_normalization = true
-exclude = ".*(venv|virtualenv|.poetry|migrations|node_modules)"
+exclude = ".*(venv|virtualenv|.poetry|migrations|node_modules|.tox)"
 
 [tool.isort]
 skip_glob = "**/migrations/*.py,**/fixtures/*.py,infra/**/*.py"

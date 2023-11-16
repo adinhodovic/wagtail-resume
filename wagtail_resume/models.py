@@ -5,7 +5,6 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.models import Image
 from wagtail.models import Page
-from wagtailmarkdown.edit_handlers import MarkdownPanel
 from wagtailmarkdown.fields import MarkdownField
 from wagtailmetadata.models import MetadataMixin
 
@@ -95,7 +94,7 @@ class BaseResumePage(MetadataMixin, Page):  # pylint: disable=too-many-ancestors
             [
                 FieldPanel("full_name"),
                 FieldPanel("role"),
-                MarkdownPanel("about"),
+                FieldPanel("about"),
                 FieldPanel("about_icon"),
                 FieldPanel("photo"),
                 FieldPanel("social_links"),

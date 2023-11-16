@@ -2,7 +2,7 @@
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "2.4.1"
+version = "2.5.0"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -37,7 +37,7 @@ python = "^3.10"
 Django = "^3.2.0 || ^4.0.0"
 wagtail = "^4.0.0 || ^5.0.0"
 wagtail-markdown = "^0.10 || ^0.11"
-wagtail-metadata = "5.*"
+wagtail-metadata = "^4.0.0 || ^5.0.0"
 weasyprint = "^52"
 
 [tool.poetry.group.dev.dependencies]
@@ -66,9 +66,13 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-addopts = "--ds=tests.settings"
+addopts = "--ds=tests.settings --reuse-db --pdbcls=pudb.debugger:Debugger"
 python_files = "tests.py test_*.py"
-norecursedirs = "node_modules .venv"
+norecursedirs = ".git */migrations/* */static/* venv .venv .poetry .virtualenv node_modules"
+
+[tool.black]
+skip_numeric_underscore_normalization = true
+exclude = ".*(venv|virtualenv|.poetry|migrations|node_modules)"
 
 [tool.isort]
 skip_glob = "**/migrations/*.py,**/fixtures/*.py,infra/**/*.py"
@@ -81,7 +85,7 @@ ensure_newline_before_comments = true
 line_length = 88
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 check_untyped_defs = true
 ignore_missing_imports = true
 warn_unused_ignores = true
@@ -95,11 +99,31 @@ django_settings_module = "tests.settings"
 
 [tool.pylint.'MASTER']
 load-plugins = "pylint_django"
-django-settings-module = "tests.settings"
-ignore = "migrations"
+ignore = "manage.py"
 
 [tool.pylint.'FORMAT']
-max-line-length = 120
+max-line-length = 150
 
 [tool.pylint.'MESSAGES CONTROL']
-disable = "missing-docstring,invalid-name"
+disable = "missing-docstring,invalid-name,logging-fstring-interpolation,fixme,duplicate-code"
+
+[tool.pylint.'DESIGN']
+max-parents = 13
+
+[tool.pylint.'SIMILARITIES']
+# Minimum lines number of a similarity.
+min-similarity-lines=4
+# Ignore comments when computing similarities.
+ignore-comments = "yes"
+# Ignore docstrings when computing similarities.
+ignore-docstrings = "yes"
+# Ignore imports when computing similarities.
+ignore-imports = "yes"
+
+[tool.djlint]
+ignore="H006,H030,H031"
+profile = "django"
+preserve_blank_lines = true
+use_gitignore = true
+format_css = true
+format_js = true

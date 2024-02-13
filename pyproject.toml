@@ -2,27 +2,24 @@
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "2.5.0"
+version = "2.6.0"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
 documentation = "https://github.com/adinhodovic/wagtail-resume"
 description = "A Wagtail project made to simplify creation of resumes for developers."
-keywords = [
-  "Resume",
-  "Django",
-  "Wagtail",
-  "CMS"
-]
+keywords = ["Resume", "Django", "Wagtail", "CMS"]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
   "Framework :: Wagtail",
   "Framework :: Wagtail :: 4",
   "Framework :: Wagtail :: 5",
+  "Framework :: Wagtail :: 6",
   "Framework :: Django",
   "Framework :: Django :: 3.2",
   "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.0",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
@@ -33,9 +30,9 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-Django = "^3.2.0 || ^4.0.0"
-wagtail = "^4.0.0 || ^5.0.0"
+python = "^3.10 || ^3.11"
+Django = "^3.2.0 || ^4.0.0 || ^5.0.0"
+wagtail = "^4.0.0 || ^5.0.0 || ^6.0.0"
 wagtail-markdown = "^0.10 || ^0.11"
 wagtail-metadata = "^4.0.0 || ^5.0.0"
 weasyprint = "^52"
@@ -92,7 +89,7 @@ warn_unused_ignores = true
 warn_redundant_casts = true
 warn_unused_configs = true
 plugins = ["mypy_django_plugin.main"]
-exclude = [".venv","migrations.*"]
+exclude = [".venv", "migrations.*"]
 
 [tool.django-stubs]
 django_settings_module = "tests.settings"
@@ -112,7 +109,7 @@ max-parents = 13
 
 [tool.pylint.'SIMILARITIES']
 # Minimum lines number of a similarity.
-min-similarity-lines=4
+min-similarity-lines = 4
 # Ignore comments when computing similarities.
 ignore-comments = "yes"
 # Ignore docstrings when computing similarities.
@@ -121,7 +118,7 @@ ignore-docstrings = "yes"
 ignore-imports = "yes"
 
 [tool.djlint]
-ignore="H006,H030,H031"
+ignore = "H006,H030,H031"
 profile = "django"
 preserve_blank_lines = true
 use_gitignore = true

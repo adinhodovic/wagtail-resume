@@ -1,26 +1,27 @@
 {% load i18n %}
 {% load wagtailmarkdown %}
-<h2 class="section-title">
-    {% if value.fa_icon %}<i class="{{ value.fa_icon }}"></i>{% endif %}
-    <span>{{ value.heading }}</span>
+
+<h2 class="mt-4 mb-0">
+  {% if value.fa_icon %}<i class="{{ value.fa_icon }}"></i>{% endif %}
+  <span>{{ value.heading }}</span>
 </h2>
-<hr>
+<hr />
 {% for experience in value.experiences %}
-    <p class="work-experience-heading mb-0">
-        <b>{{ experience.role }} · <a href="{{ experience.url }}">{{ experience.company }}</a></b>
-    </p>
-    {% if experience.location %}<p class="mt-0 mb-0">{{ experience.location }}</p>{% endif %}
-    <p class="date mt-0">
-        {{ experience.from_date }} -
-        {% if experience.currently_working_here %}
-            <b>{% trans "Present" %}</b>
-        {% else %}
-            {{ experience.to_date }}
-        {% endif %}
-    </p>
-    <div style="margin-top: 1.5rem;">{{ experience.text | markdown }}</div>
-    {% if not forloop.last %}<hr>{% endif %}
+  <h3 class="mb-1">
+    {{ experience.role }} · <a href="{{ experience.url }}">{{ experience.company }}</a>
+  </h3>
+  {% if experience.location %}<p class="mt-0 mb-0">{{ experience.location }}</p>{% endif %}
+  <p class="date mt-0">
+    {{ experience.from_date }} -
+    {% if experience.currently_working_here %}
+      <b>{% trans "Present" %}</b>
+    {% else %}
+      {{ experience.to_date }}
+    {% endif %}
+  </p>
+  <div style="margin-top: 1.5rem;">{{ experience.text | markdown }}</div>
+  {% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
 {% if value.maximum_experiences_displayed > 0 %}
-    <p style="margin-top:2rem; font-weight:600; font-style: italic;">{{ value.maximum_experiences_user_text }}</p>
+  <p style="margin-top:2rem; font-weight:600; font-style: italic;">{{ value.maximum_experiences_user_text }}</p>
 {% endif %}

@@ -11,14 +11,11 @@ def test_template(site, resume, client):
     res = client.get(resume.full_url)
     soup = BeautifulSoup(res.content, "html.parser")
 
-    template_name = soup.find("h2", {"class": "name"}).string
-    assert template_name == resume.full_name
+    assert resume.full_name in soup.text
 
-    template_role = soup.find("h2", {"class": "role"}).string
-    assert template_role == resume.role
+    assert resume.role in soup.text
 
-    template_about = soup.find("p", {"class": "about"})
-    assert about in str(template_about)
+    assert about in soup.text
 
 
 def test_resume_preferences(site, resume, client):

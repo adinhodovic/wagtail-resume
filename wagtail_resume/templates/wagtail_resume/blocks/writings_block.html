@@ -1,26 +1,22 @@
 {% load wagtailcore_tags %}
 
-<h2 class="section-title">
+<h2 class="mt-4 mb-0">
   {% if value.fa_icon %}<i class="{{ value.fa_icon }}"></i>{% endif %}
   <span>{{ value.heading }}</span>
 </h2>
-<hr>
+<hr />
 {% for post in value.posts %}
-<ul>
-  <li>
-    {% if post.block_type == "external_post" %}
-    <a href="{{ post.value.url }}">{{ post.value.title }}</a>
-    <p class="date post-date">
-      {{ post.value.date }}
-    </p>
-    {% else %}
-    {% with post.value.post as internal_post %}
-    <a href="{{ internal_post.url }}">{{ internal_post.title }}</a>
-    <p class="date post-date">
-      {{ internal_post.first_published_at|date:"M. d, Y" }}
-    </p>
-    {% endwith %}
-    {% endif %}
-  </li>
-</ul>
+  <ul>
+    <li>
+      {% if post.block_type == "external_post" %}
+        <a href="{{ post.value.url }}">{{ post.value.title }}</a>
+        <p class="date mt-1">{{ post.value.date }}</p>
+      {% else %}
+        {% with post.value.post as internal_post %}
+          <a href="{{ internal_post.url }}">{{ internal_post.title }}</a>
+          <p class="date mt-1">{{ internal_post.first_published_at|date:"M. d, Y" }}</p>
+        {% endwith %}
+      {% endif %}
+    </li>
+  </ul>
 {% endfor %}

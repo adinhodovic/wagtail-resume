@@ -1,28 +1,34 @@
 {% load i18n %}
 {% load wagtailcore_tags %}
 
-<h2 class="section-title">
+<h2 class="mt-4 mb-0">
   {% if value.fa_icon %}<i class="{{ value.fa_icon }}"></i>{% endif %}
   <span>{{ value.heading }}</span>
 </h2>
-<hr>
+<hr />
 {% for education in value.educations %}
-{% if education.block_type == "degree" %}
-{% with education.value as degree %}
-<a href="{{ degree.university_url }}"><b>{{ degree.university_name }}</b></a>
-<p class="post-degree"><a href="{{ degree.degree_url }}">{{ degree.degree }}, {{ degree.field_of_study }}</a></p>
-<p class="date post-date">{{ degree.studies_starting_date|date:"Y" }} - {{ degree.studies_ending_date|date:"Y"}}</p>
-{% endwith %}
-{% elif education.block_type == "certificate" %}
-{% with education.value as certificate %}
-<a href="{{ certificate.institute_url }}"><b>{{ certificate.institute_name }}</b> - {% trans "Certificate" %}</a>
-<p class="post-degree"><a href="{{ certificate.certificate_url }}">{{ certificate.name }}</a></p>
-<p class="date post-date">{{ certificate.studies_starting_date|date:"m/Y" }} - {{ certificate.studies_ending_date|date:"m/Y"}}</p>
-{% endwith %}
-{% elif education.block_type == "course" %}
-{% with education.value as course %}
-<a href="{{ course.course_url }}"><b>{{ course.name }}</b> - {% trans "Course" %}</a>
-<p class="date post-date">{{ course.studies_starting_date|date:"m/Y" }} - {{ course.studies_ending_date|date:"m/Y"}}</p>
-{% endwith %}
-{% endif %}
+  {% if education.block_type == "degree" %}
+    {% with education.value as degree %}
+      <a href="{{ degree.university_url }}"><b>{{ degree.university_name }}</b></a>
+      <p class="mt-1 mb-0">
+        <a href="{{ degree.degree_url }}">{{ degree.degree }}, {{ degree.field_of_study }}</a>
+      </p>
+      <p class="date mt-1">{{ degree.studies_starting_date|date:"Y" }} - {{ degree.studies_ending_date|date:"Y" }}</p>
+    {% endwith %}
+  {% elif education.block_type == "certificate" %}
+    {% with education.value as certificate %}
+      <a href="{{ certificate.institute_url }}"><b>{{ certificate.institute_name }}</b> - {% trans "Certificate" %}</a>
+      <p class="mt-1 mb-0">
+        <a href="{{ certificate.certificate_url }}">{{ certificate.name }}</a>
+      </p>
+      <p class="date mt-1">
+        {{ certificate.studies_starting_date|date:"m/Y" }} - {{ certificate.studies_ending_date|date:"m/Y" }}
+      </p>
+    {% endwith %}
+  {% elif education.block_type == "course" %}
+    {% with education.value as course %}
+      <a href="{{ course.course_url }}"><b>{{ course.name }}</b> - {% trans "Course" %}</a>
+      <p class="date mt-1">{{ course.studies_starting_date|date:"m/Y" }} - {{ course.studies_ending_date|date:"m/Y" }}</p>
+    {% endwith %}
+  {% endif %}
 {% endfor %}

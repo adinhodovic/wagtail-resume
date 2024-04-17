@@ -5,7 +5,7 @@ body {
 
 p {
   line-height: 1.5;
-  font-size: 1rem
+  font-size: 1rem;
 }
 
 h2 {
@@ -13,11 +13,24 @@ h2 {
   font-size: 1.3rem;
 }
 
+h3 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 hr {
   border-color: #fdfcfc;
   border-width: 0.1px;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .mt-0 {
@@ -28,6 +41,10 @@ hr {
   margin-bottom: 0rem;
 }
 
+.ml-0 {
+  margin-left: 0 !important;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -36,9 +53,32 @@ hr {
   margin-bottom: 0.25rem;
 }
 
-.name {
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.mb-2 {
   margin-bottom: 0.5rem;
-  margin-top: 0;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
 }
 
 .container {
@@ -47,10 +87,6 @@ hr {
   margin: 0 auto;
   padding: 0;
   min-height: 100vh;
-}
-
-.work-experience-heading, .contribution-title {
-  font-size: 1.10rem;
 }
 
 .resume {
@@ -66,38 +102,23 @@ img {
 }
 
 a {
-  color: #4652F6;
+  color: #4652f6;
   text-decoration: none;
   background-color: transparent;
 }
 
-.personal-info {
-  margin-bottom: 0.1rem;
-  margin-top: 0.3rem;
-}
-
-.personal-info > div {
-  display: inline-block;
-}
-
-.personal-info > div:last-of-type {
-  float: right;
-}
-
 .photo {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   margin-top: 1rem;
   border-radius: 50%;
   width: 250px;
 }
 
 .social-links img {
-  margin-top: 0.4rem;
-  width: 30px;
+  width: 1.5rem;
 }
 
 .social-links span {
-  margin-left: 0.3rem;
   vertical-align: super;
 }
 
@@ -105,39 +126,9 @@ a {
   color: #5b5b55;
 }
 
-.text {
-  margin: 2rem 1rem;
-}
-
-.section-title {
-  margin-top: 2rem;
-  margin-bottom: 0rem;
-  align-items: center;
-}
-
-.section-title i {
-  margin-right: 0.6rem;
-}
-
-.post-date {
-  margin-top: 0.2rem;
-}
-
-.post-degree {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-}
-
-.contribution-title {
-  margin-bottom: 0.2rem;
-}
-
-.contribution-description {
-  margin: 0.8rem 0;
-}
-
-.section-title .fas, .section-title .fab {
-  font-size: 26px;
+.fas,
+.fab {
+  font-size: 1.5rem;
 }
 
 .pdf {
@@ -145,7 +136,6 @@ a {
 }
 
 @media (min-width: 768px) {
-
   .personal-info {
     align-items: center;
     display: flex;
@@ -159,57 +149,31 @@ a {
 
   .pdf {
     color: white;
-    background: #2A3F76;
+    background: #2a3f76;
     border-radius: 8px;
     display: block;
     font-size: 16px;
     font-weight: 600;
-    padding: .6rem 1.2rem;
+    padding: 0.6rem 1.2rem;
     line-height: 25px;
     float: right;
   }
 }
 
 @media (min-width: 992px) {
-
   .resume {
     padding: 4rem 4rem;
     max-width: 950px;
     width: 60%;
   }
-
 }
 
-
 @media (max-width: 768px) {
-
-  .section-title .fas, .section-title .fab {
-    font-size: 20px;
-  }
-
-  .section-title i {
-    margin-right: 0.4rem;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
-
   .resume {
     padding: 1.5rem;
   }
 
-  .social-links img {
-    margin-top: 0.4rem;
-    width: 22px;
-  }
-
   .photo {
     width: 45%;
-    margin-bottom: 2rem;
   }
-}
-
-.margin-0 {
-  margin-left: 0 !important;
 }

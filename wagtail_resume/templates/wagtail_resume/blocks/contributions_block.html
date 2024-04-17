@@ -1,15 +1,17 @@
 {% load wagtailcore_tags %}
 
-<h2 class="section-title">
-  {% if value.fa_icon %}<i class="{{ value.fa_icon }}"></i>{% endif %}
+<h2 class="mt-4 mb-0">
+  {% if value.fa_icon %}<i class="{{ value.fa_icon }} mr-2"></i>{% endif %}
   <span>{{ value.heading }}</span>
 </h2>
-<hr>
+<hr />
 <ul>
   {% for contribution in value.contributions %}
-  <li>
-    <a class="contribution-title" href="{{ contribution.url }}"><b>{{ contribution.title }}</b></a>
-    <p class="contribution-description">{{ contribution.description }}</p>
-  </li>
+    <li>
+      <a href="{{ contribution.url }}">
+        <h3>{{ contribution.title }}</h3>
+      </a>
+      <p>{{ contribution.description }}</p>
+    </li>
   {% endfor %}
 </ul>

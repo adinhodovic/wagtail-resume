@@ -41,6 +41,9 @@ class BaseResumePage(MetadataMixin, Page):  # pylint: disable=too-many-ancestors
         """,
         max_length=64,
     )
+    display_last_update = models.BooleanField(
+        default=True, help_text="If enabled, the last update date will be displayed."
+    )
 
     role = models.CharField(max_length=100, null=True, blank=True)
     about = MarkdownField(max_length=2500, null=True, blank=True)
@@ -87,6 +90,7 @@ class BaseResumePage(MetadataMixin, Page):  # pylint: disable=too-many-ancestors
                 FieldPanel("font"),
                 FieldPanel("background_color"),
                 FieldPanel("pdf_generation_visibility"),
+                FieldPanel("display_last_update"),
             ],
             heading="Customization",
         ),

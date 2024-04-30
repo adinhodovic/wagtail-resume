@@ -8,10 +8,8 @@
 <ul>
   {% for contribution in value.contributions %}
     <li>
-      <a href="{{ contribution.url }}">
-        <h3>{{ contribution.title }}</h3>
-      </a>
-      <p>{{ contribution.description }}</p>
+      <a href="{{ contribution.url }}"><b>{{ contribution.title }}</b></a>
+      <p class="mt-1">{{ contribution.description }}</p>
     </li>
   {% endfor %}
 </ul>

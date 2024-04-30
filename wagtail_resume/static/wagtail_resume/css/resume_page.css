@@ -135,13 +135,13 @@ a {
   display: None;
 }
 
-@media (min-width: 768px) {
-  .personal-info {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
+.personal-info {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
 
+@media (min-width: 768px) {
   .resume {
     padding: 4rem 3rem;
     width: 80%;
@@ -171,6 +171,10 @@ a {
 @media (max-width: 768px) {
   .resume {
     padding: 1.5rem;
+  }
+
+  .personal-info {
+    display: block;
   }
 
   .photo {

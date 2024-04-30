@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "2.7.2"
+version = "2.8.0"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -31,15 +31,16 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.10 || ^3.11"
+python = "^3.10 || ^3.11 || 3.12"
 Django = "^3.2.0 || ^4.0.0 || ^5.0.0"
 wagtail = "^4.0.0 || ^5.0.0 || ^6.0.0"
-wagtail-markdown = "^0.10 || ^0.11"
+wagtail-markdown = "^0.10 || ^0.11 || ^0.12 || ^0.13"
 wagtail-metadata = "^4.0.0 || ^5.0.0"
-weasyprint = "^52"
+weasyprint = "^59 || ^60 || ^61"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.6.0"

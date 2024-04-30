@@ -3,10 +3,13 @@
 {% load wagtail_resume_extras %}
 
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
-  <link href="https://fonts.googleapis.com/css?family={% if page.font %}{{ page.font|title|space_to_plus }}|{% endif %}Roboto+Condensed&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{% static 'wagtail_resume/css/resume_page.css' %}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+  <link href="https://fonts.googleapis.com/css?family={% if page.font %}{{ page.font|title|space_to_plus }}|{{ page.font|title|space_to_plus }}:bold,bolditalic:italic|{% endif %}Roboto|Roboto+Condensed:bold,bolditalic,italic&display=swap"
+        rel="stylesheet" />
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'wagtail_resume/css/resume_page.css' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   {% meta_tags %}
 </head>

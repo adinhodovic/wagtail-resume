@@ -1,22 +1,22 @@
 {% load wagtailcore_tags %}
 
 <h2 class="mt-4 mb-0">
-  {% if value.fa_icon %}<i class="{{ value.fa_icon }}"></i>{% endif %}
+  {% if value.fa_icon %}<i class="{{ value.fa_icon }} mr-2"></i>{% endif %}
   <span>{{ value.heading }}</span>
 </h2>
 <hr />
-{% for post in value.posts %}
-  <ul>
+<ul>
+  {% for post in value.posts %}
     <li>
       {% if post.block_type == "external_post" %}
-        <a href="{{ post.value.url }}">{{ post.value.title }}</a>
+        <a href="{{ post.value.url }}"><b>{{ post.value.title }}</b></a>
         <p class="date mt-1">{{ post.value.date }}</p>
       {% else %}
         {% with post.value.post as internal_post %}
-          <a href="{{ internal_post.url }}">{{ internal_post.title }}</a>
+          <a href="{{ internal_post.url }}"><b>{{ internal_post.title }}</b></a>
           <p class="date mt-1">{{ internal_post.first_published_at|date:"M. d, Y" }}</p>
         {% endwith %}
       {% endif %}
     </li>
-  </ul>
-{% endfor %}
+  {% endfor %}
+</ul>

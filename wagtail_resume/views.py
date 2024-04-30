@@ -49,19 +49,28 @@ def resume_pdf(request):
 
     resume_url = specific.full_url
     name = slugify(specific.full_name)
-    date = datetime.datetime.now().strftime("%Y-%m-%d")
+    if resume.latest_revision_created_at:
+        resume_date = resume.latest_revision_created_at
+    else:
+        resume_date = datetime.datetime.now()
+    date = resume_date.strftime("%Y-%m-%d")
     font = specific.font
 
     response["Content-Disposition"] = f"inline; filename={name}-resume-{date}.pdf"
     if font:
         font = space_to_plus(font).title()
-        HTML(url=resume_url).write_pdf(
-            response,
-            stylesheets=[
-                # pylint: disable=line-too-long
-                f"https://fonts.googleapis.com/css2?family={font}&display=swap"
-            ],
-        )
+        full_font = f"{font}:bold|{font}:bold,bolditalic,italic"
     else:
-        HTML(url=resume_url).write_pdf(response)
+        full_font = "Roboto+Condensed|Roboto+Condensed:bold,bolditalic,italic"
+
+    print(full_font)
+    HTML(url=resume_url).write_pdf(
+        response,
+        stylesheets=[
+            # pylint: disable=line-too-long
+            # We use the default CSS API from Google Fonts to load the font
+            # CSS2 requires boldness specification for bold fonts
+            f"https://fonts.googleapis.com/css?family={full_font}&display=swap",
+        ],
+    )
     return response

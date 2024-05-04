@@ -23,7 +23,7 @@
 <body style="font-family:{% if page.font %} '{{ page.font|title }}',{% endif %} 'Roboto Condensed', sans-serif">
   <div class="container">
     <div class="resume">
-      <div class="personal-info mt-2 mb-1">
+      <div class="personal-info">
         <div>
           <h2 class="mt-2 mb-0">{{ page.full_name }}</h2>
           {% if page.role %}<h2 class="mt-2">{{ page.role }}</h2>{% endif %}
@@ -45,7 +45,7 @@
             <p class="small italic mt-1">Last update: {{ page.latest_revision_created_at|date }}</p>
           {% endif %}
         </div>
-        <div>{% image page.photo original class="photo" %}</div>
+        <div class="mt-4">{% image page.photo original class="photo" %}</div>
       </div>
       <div>
         <h2 class="mt-4 mb-0">

@@ -19,9 +19,9 @@
       {{ experience.to_date }}
     {% endif %}
   </p>
-  <div style="margin-top: 1.5rem;">{{ experience.text | markdown }}</div>
+  <div class="mt-3">{{ experience.text | markdown }}</div>
   {% if not forloop.last %}<hr />{% endif %}
 {% endfor %}
 {% if value.maximum_experiences_displayed > 0 %}
-  <p style="margin-top:2rem; font-weight:600; font-style: italic;">{{ value.maximum_experiences_user_text }}</p>
+  <h3 class="mt-4 italic">{{ value.maximum_experiences_user_text }}</h3>
 {% endif %}

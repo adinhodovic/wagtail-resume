@@ -4,7 +4,11 @@ body {
 }
 
 p {
+  font-size: 1rem;
   line-height: 1.5;
+}
+
+li {
   font-size: 1rem;
 }
 
@@ -108,8 +112,6 @@ a {
 }
 
 .photo {
-  margin-bottom: 2.5rem;
-  margin-top: 1rem;
   border-radius: 50%;
   width: 250px;
 }
@@ -124,11 +126,6 @@ a {
 
 .date {
   color: #5b5b55;
-}
-
-.fas,
-.fab {
-  font-size: 1.5rem;
 }
 
 .pdf {
@@ -179,5 +176,60 @@ a {
 
   .photo {
     width: 45%;
+  }
+}
+
+/* Print styles */
+@media print {
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  p,
+  li,
+  h3,
+  a {
+    font-size: 0.8rem;
+  }
+
+  .mt-1 {
+    margin-top: 0.125rem;
+  }
+
+  .mb-1 {
+    margin-bottom: 0.125rem;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.25rem;
+  }
+
+  .mt-2 {
+    margin-top: 0.25rem;
+  }
+
+  .mt-3 {
+    margin-top: 0.5rem;
+  }
+
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+
+  hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .social-links img {
+    width: 1rem;
+  }
+
+  .photo {
+    width: 200px;
   }
 }

@@ -101,12 +101,23 @@ class ContributionsBlock(blocks.StructBlock):
         blocks.StructBlock(
             [
                 ("title", blocks.CharBlock()),
+                ("hidden", blocks.BooleanBlock(required=False, default=False)),
                 ("description", blocks.TextBlock()),
                 ("url", blocks.URLBlock()),
             ],
             icon="folder-open-inverse",
         )
     )
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value)
+        contributions = context["self"]["contributions"]
+        for index, contribution in enumerate(contributions):
+            if contribution["hidden"] is True:
+                contributions.pop(index)
+
+        context["self"]["contributions"] = contributions
+        return context
 
 
 class EducationBlock(blocks.StructBlock):

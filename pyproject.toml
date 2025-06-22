@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 name = "wagtail-resume"
 authors = ["Adin Hodovic <hodovicadin@gmail.com>"]
 license = "MIT"
-version = "2.10.0"
+version = "2.10.1"
 readme = "README.md"
 homepage = "https://github.com/adinhodovic/wagtail-resume"
 repository = "https://github.com/adinhodovic/wagtail-resume"
@@ -20,6 +20,7 @@ classifiers = [
   "Framework :: Wagtail :: 4",
   "Framework :: Wagtail :: 5",
   "Framework :: Wagtail :: 6",
+  "Framework :: Wagtail :: 7",
   "Framework :: Django",
   "Framework :: Django :: 3.2",
   "Framework :: Django :: 4.2",
@@ -37,7 +38,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.10 || ^3.11 || 3.12"
 Django = "^3.2.0 || ^4.0.0 || ^5.0.0"
-wagtail = "^4.0.0 || ^5.0.0 || ^6.0.0"
+wagtail = "^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
 wagtail-markdown = "^0.10 || ^0.11 || ^0.12 || ^0.13"
 wagtail-metadata = "^4.0.0 || ^5.0.0"
 weasyprint = "^59 || ^60 || ^61"
@@ -45,7 +46,7 @@ weasyprint = "^59 || ^60 || ^61"
 [tool.poetry.group.dev.dependencies]
 black = "^22.6.0"
 isort = "5.5.2"
-pylint-plugin-utils = "0.7"
+pylint-plugin-utils = "0.8.2"
 tox = "^3.14.3"
 coverage = "^5.0.2"
 django-stubs = "^1.5.0"
@@ -53,8 +54,8 @@ django-model-utils = "^4.0.0"
 django-extensions = "^2.2.9"
 jedi = "^0.19.1"
 mypy = "^0.910"
-pylint = "^2.17.5"
-pylint-django = "^2.5.3"
+pylint = "^3.3.7"
+pylint-django = "^2.6.1"
 pytest = "^7.4.2"
 pytest-cov = "^2.8.1"
 pytest-django = "^4.5.2"

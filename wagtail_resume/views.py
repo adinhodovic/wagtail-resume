@@ -63,7 +63,6 @@ def resume_pdf(request):
     else:
         full_font = "Roboto+Condensed|Roboto+Condensed:bold,bolditalic,italic"
 
-    print(full_font)
     HTML(url=resume_url).write_pdf(
         response,
         stylesheets=[

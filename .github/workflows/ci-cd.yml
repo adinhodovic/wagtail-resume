@@ -48,8 +48,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11", "3.12"]
-        dj-version: [django42, django50]
+        python-version: ["3.12", "3.13"]
+        dj-version: [django42, django50, django60]
         wagtail-version: [wagtail60, wagtail70]
 
     steps:

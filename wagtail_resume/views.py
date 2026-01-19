@@ -19,6 +19,41 @@ logger.addHandler(logging.NullHandler())
 logger.setLevel(40)  # Only show errors, use 50
 
 
+def build_google_fonts_css(primary_font: str | None) -> str:
+    """
+    Build a Google Fonts CSS2 URL for WeasyPrint.
+
+    Order:
+    - primary_font (if provided)
+    - Roboto (Latin/UI)
+    - Noto Sans (broad Unicode coverage)
+    - Noto Color Emoji (emoji)
+    """
+    weights = "0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700"
+
+    def family_param(name: str, weighted: bool = True) -> str:
+        name = space_to_plus(name.strip())
+        if weighted:
+            return f"family={name}:ital,wght@{weights}"
+        return f"family={name}"
+
+    parts = []
+
+    if primary_font:
+        parts.append(family_param(primary_font.title()))
+        parts.append(family_param("Roboto"))
+    else:
+        parts.append(family_param("Roboto"))
+
+    # Coverage fallback
+    parts.append(family_param("Noto Sans"))
+
+    # Emoji (no weights)
+    parts.append(family_param("Noto Color Emoji", weighted=False))
+
+    return "https://fonts.googleapis.com/css2?" + "&".join(parts) + "&display=swap"
+
+
 def resume_pdf(request):
     page_id = request.GET.get("page_id")
     if not page_id:
@@ -57,11 +92,7 @@ def resume_pdf(request):
     font = specific.font
 
     response["Content-Disposition"] = f"inline; filename={name}-resume-{date}.pdf"
-    if font:
-        font = space_to_plus(font).title()
-        full_font = f"{font}:bold|{font}:bold,bolditalic,italic"
-    else:
-        full_font = "Roboto+Condensed|Roboto+Condensed:bold,bolditalic,italic"
+    google_fonts_css = build_google_fonts_css(font)
 
     HTML(url=resume_url).write_pdf(
         response,
@@ -69,7 +100,7 @@ def resume_pdf(request):
             # pylint: disable=line-too-long
             # We use the default CSS API from Google Fonts to load the font
             # CSS2 requires boldness specification for bold fonts
-            f"https://fonts.googleapis.com/css?family={full_font}&display=swap",
+            google_fonts_css
         ],
     )
     return response
@@ -120,26 +151,16 @@ def academic_resume_pdf(request):
     # Get font from model
     font = specific.font
 
-    # Render the academic template directly
+    google_fonts_css = build_google_fonts_css(font)
+
+    # Render the academic template
     html_content = render_to_string(
-        "wagtail_resume/academic_resume_page.html", {"page": specific}
+        "wagtail_resume/academic_resume_page.html",
+        {"page": specific},
     )
 
-    # Load Google Fonts - always include Noto Color Emoji for emoji support
-    stylesheets = []
-    if font:
-        font = space_to_plus(font).title()
-        full_font = f"{font}:400,400i,600,700|Noto+Color+Emoji"
-        stylesheets.append(
-            f"https://fonts.googleapis.com/css?family={full_font}&display=swap"
-        )
-    else:
-        stylesheets.append(
-            "https://fonts.googleapis.com/css?family=Noto+Color+Emoji&display=swap"
-        )
-
-    HTML(string=html_content, base_url=request.build_absolute_uri("/")).write_pdf(
-        response, stylesheets=stylesheets
+    HTML(string=html_content, base_url=request.build_absolute_uri("/"),).write_pdf(
+        response,
+        stylesheets=[google_fonts_css],
     )
-
     return response

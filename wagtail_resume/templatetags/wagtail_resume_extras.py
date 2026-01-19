@@ -1,6 +1,5 @@
-import re
-
 from django import template
+from django.utils.html import escape
 from markdown import markdown
 
 register = template.Library()
@@ -18,11 +17,11 @@ def markdown_to_bullets(value):
     if not value:
         return ""
 
-    # Convert markdown to HTML with autolink extension
-    html = markdown(value, extensions=["extra", "nl2br"])
+    # Escape raw HTML so pasted <a> tags don’t survive and break output
+    value = escape(value)
 
-    # Also convert plain URLs to clickable links (regex pattern for URLs)
-    url_pattern = r'(?<!href=")(?<!src=")(https?://[^\s<>"]+)'
-    html = re.sub(url_pattern, r'<a href="\1">\1</a>', html)
-
-    return html
+    return markdown(
+        value,
+        extensions=["extra", "nl2br", "pymdownx.magiclink"],
+        output_format="html5",
+    )

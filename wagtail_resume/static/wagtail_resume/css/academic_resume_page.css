@@ -1,0 +1,327 @@
+/* Academic Resume Stylesheet */
+/* Inspired by RenderCV Classic Theme - Professional Academic CV Style */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    "Latin Modern Roman", "Computer Modern", "Times New Roman", Times, serif;
+  font-size: 10pt;
+  line-height: 1.15;
+  color: #000000;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Section */
+.header {
+  margin-bottom: 0.12in;
+  position: relative;
+}
+
+.header-left {
+  text-align: center;
+}
+
+.header-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+.header h1 {
+  font-size: 20pt;
+  font-weight: bold;
+  margin-bottom: 0.05in;
+  letter-spacing: 0.5pt;
+}
+
+.header .role {
+  font-size: 10.5pt;
+  font-weight: normal;
+  color: #333333;
+  margin-bottom: 0;
+}
+
+.last-updated {
+  font-size: 8pt;
+  color: #777777;
+  font-style: italic;
+}
+
+/* Contact Information - centered like rendercv */
+.section.contact {
+  text-align: center;
+  margin-bottom: 0.15in;
+  margin-top: 0.08in;
+}
+
+.contact-item {
+  display: inline;
+  font-size: 9pt;
+  line-height: 1.3;
+}
+
+.contact-item:not(:last-child)::after {
+  content: " • ";
+  margin: 0 0.06in;
+}
+
+/* Professional Summary - like rendercv intro section */
+.section p {
+  text-align: justify;
+  margin-bottom: 0;
+  line-height: 1.15;
+}
+
+/* Professional Summary specific styling - compact */
+.professional-summary {
+  text-align: justify;
+  margin-bottom: 0.12in;
+  line-height: 1.2;
+}
+
+.professional-summary p {
+  margin-bottom: 0.04in;
+  line-height: 1.2;
+}
+
+.professional-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.professional-summary ul {
+  margin-top: 0.02in;
+  margin-bottom: 0.02in;
+  margin-left: 0.18in;
+}
+
+.professional-summary li {
+  margin-bottom: 0.02in;
+  line-height: 1.2;
+  font-size: 10pt;
+}
+
+.professional-summary a {
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 0.5pt solid #666666;
+}
+
+/* Section Headings - rendercv Classic style */
+h2 {
+  font-size: 10pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.1in;
+  margin-bottom: 0.05in;
+  padding-bottom: 0.02in;
+  border-bottom: 0.5pt solid #000000;
+}
+
+/* Entry Container - two-column layout like rendercv */
+.entry {
+  margin-bottom: 0.12in;
+  page-break-inside: avoid;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Work experience entries have more spacing and separator */
+.work-entry {
+  margin-bottom: 0.15in;
+  padding-bottom: 0.08in;
+  border-bottom: 0.5pt solid #dddddd;
+}
+
+.work-entry:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0.05in;
+}
+
+.entry-left {
+  flex: 1;
+  padding-right: 0.2in;
+}
+
+.entry-right {
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 1.2in;
+}
+
+hr {
+  border: none;
+  border-top: 0.5pt solid #dddddd;
+  margin: 0.1in 0;
+}
+
+/* Job Titles / Degree Names */
+h3 {
+  font-size: 10pt;
+  font-weight: bold;
+  margin-bottom: 0;
+  line-height: 1.15;
+  display: inline;
+}
+
+/* Experience header - job title and company on same line */
+.experience-header {
+  margin-bottom: 0.02in;
+  line-height: 1.15;
+}
+
+.company-name {
+  font-size: 10pt;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.company-name a {
+  font-style: italic;
+  color: #1a1a1a;
+  border-bottom: 0.5pt solid #666666;
+}
+
+.experience-header h3::after {
+  content: " • ";
+  font-weight: normal;
+  color: #666666;
+}
+
+/* Institution Names */
+.institution {
+  font-size: 10pt;
+  font-weight: normal;
+  margin-bottom: 0.01in;
+  line-height: 1.15;
+}
+
+.institution a {
+  font-weight: normal;
+}
+
+/* Dates and Locations - right aligned like rendercv */
+.date {
+  font-size: 8.5pt;
+  color: #333333;
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.location {
+  font-size: 8.5pt;
+  color: #333333;
+  line-height: 1.15;
+}
+
+/* URLs - minimally styled */
+.url {
+  font-size: 7.5pt;
+  color: #666666;
+  margin-top: 0.01in;
+  word-break: break-all;
+  line-height: 1.1;
+}
+
+/* Description/Bullet Points - formatted like rendercv */
+.description {
+  margin-top: 0.02in;
+  line-height: 1.15;
+}
+
+.description p {
+  text-align: justify;
+  margin-bottom: 0.02in;
+  line-height: 1.15;
+  font-size: 9.5pt;
+}
+
+.description ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left: 0.18in;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.description li {
+  margin-bottom: 0.015in;
+  line-height: 1.15;
+  text-align: left;
+  font-size: 9.5pt;
+}
+
+/* Lists in general sections */
+ul {
+  list-style-position: outside;
+  margin-left: 0.18in;
+  margin-top: 0.03in;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.04in;
+  line-height: 1.15;
+}
+
+li strong {
+  font-weight: bold;
+}
+
+/* More spacing for projects and publications lists */
+.section h2 + ul li {
+  margin-bottom: 0.08in;
+  line-height: 1.25;
+}
+
+/* Links - subtle but clear */
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 0.5pt solid #666666;
+}
+
+/* Notes (e.g., "only showing recent experiences") */
+.note {
+  font-size: 9pt;
+  font-style: italic;
+  color: #555555;
+  margin-top: 0.02in;
+}
+
+/* Special styling for education entries */
+.entry.education h3 {
+  display: inline;
+}
+
+.entry.education .institution {
+  display: inline;
+}
+
+.entry.education h3::after {
+  content: ", ";
+}
+
+/* Page setup for PDF generation */
+@page {
+  margin: 0.75in 0.75in 0.85in 0.75in;
+  size: A4;
+
+  @bottom-center {
+    content: "Page " counter(page) " of " counter(pages);
+    font-size: 8pt;
+    color: #666666;
+    font-style: italic;
+  }
+}

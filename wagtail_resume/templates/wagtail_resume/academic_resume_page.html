@@ -1,0 +1,186 @@
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load i18n %}
+{% load wagtail_resume_extras %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page.full_name }} - Resume</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'wagtail_resume/css/academic_resume_page.css' %}" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div class="header">
+      <div class="header-left">
+        <h1>{{ page.full_name }}</h1>
+        {% if page.role %}<div class="role">{{ page.role }}</div>{% endif %}
+      </div>
+      {% if page.display_last_update and page.latest_revision_created_at %}
+        <div class="header-right">
+          <div class="last-updated">Last updated: {{ page.latest_revision_created_at|date:"F Y" }}</div>
+        </div>
+      {% endif %}
+    </div>
+    <!-- Contact Information - centered with bullet separators -->
+    {% if page.social_links %}
+      <div class="section contact">
+        {% for social_link in page.social_links %}
+          <div class="contact-item">
+            <a href="{{ social_link.value.url }}">{{ social_link.value.text }}</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <!-- Professional Summary -->
+    {% if page.about %}
+      <div class="section">
+        <div class="professional-summary">{{ page.about|markdown_to_bullets|safe }}</div>
+      </div>
+    {% endif %}
+    <!-- Work Experience Section -->
+    {% for block in page.resume %}
+      {% if block.block_type == "work_experience" %}
+        <div class="section">
+          <h2>{{ block.value.heading|default:"Experience" }}</h2>
+          {% with max_exp=block.value.maximum_experiences_displayed %}
+            {% for experience in block.value.experiences %}
+              {% if not experience.hidden %}
+                {% if max_exp == 0 or forloop.counter <= max_exp %}
+                  <div class="entry work-entry">
+                    <div class="entry-left">
+                      <div class="experience-header">
+                        <h3>{{ experience.role }}</h3>
+                        <span class="company-name"><a href="{{ experience.url }}">{{ experience.company }}</a></span>
+                      </div>
+                      {% if experience.text %}<div class="description">{{ experience.text|markdown_to_bullets|safe }}</div>{% endif %}
+                    </div>
+                    <div class="entry-right">
+                      {% if experience.location %}<div class="location">{{ experience.location }}</div>{% endif %}
+                      <div class="date">
+                        {{ experience.from_date|date:"M Y" }} –
+                        {% if experience.currently_working_here %}
+                          present
+                        {% else %}
+                          {{ experience.to_date|date:"M Y" }}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% if max_exp > 0 %}<p class="note">{{ block.value.maximum_experiences_user_text }}</p>{% endif %}
+          {% endwith %}
+        </div>
+      {% endif %}
+    {% endfor %}
+    <!-- Publications/Writing Section -->
+    {% for block in page.resume %}
+      {% if block.block_type == "writing" %}
+        <div class="section">
+          <h2>{{ block.value.heading|default:"Publications" }}</h2>
+          <ul>
+            {% for post in block.value.posts %}
+              <li>
+                {% if post.block_type == "external_post" %}
+                  <a href="{{ post.value.url }}">{{ post.value.title }}</a>
+                  <div class="date">{{ post.value.date|date:"M Y" }}</div>
+                {% else %}
+                  {% with post.value.post as internal_post %}
+                    <a href="{{ internal_post.url }}">{{ internal_post.title }}</a>
+                    <div class="date">{{ internal_post.first_published_at|date:"M Y" }}</div>
+                  {% endwith %}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <!-- Projects/Contributions Section -->
+    {% for block in page.resume %}
+      {% if block.block_type == "contributions" %}
+        <div class="section">
+          <h2>{{ block.value.heading|default:"Projects" }}</h2>
+          <ul>
+            {% for contribution in block.value.contributions %}
+              {% if not contribution.hidden %}
+                <li>
+                  <a href="{{ contribution.url }}">{{ contribution.title }}</a>: {{ contribution.description }}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <!-- Education Section -->
+    {% for block in page.resume %}
+      {% if block.block_type == "education" %}
+        <div class="section">
+          <h2>{{ block.value.heading|default:"Education" }}</h2>
+          {% for education in block.value.educations %}
+            {% if education.block_type == "degree" %}
+              {% with education.value as degree %}
+                <div class="entry education">
+                  <div class="entry-left">
+                    <h3>{{ degree.degree }}</h3>
+                    <div class="institution">{{ degree.university_name }}, {{ degree.field_of_study }}</div>
+                    {% if degree.university_url %}
+                      <div class="url">
+                        <a href="{{ degree.university_url }}">{{ degree.university_url }}</a>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="entry-right">
+                    <div class="date">{{ degree.studies_starting_date|date:"M Y" }} – {{ degree.studies_ending_date|date:"M Y" }}</div>
+                  </div>
+                </div>
+              {% endwith %}
+            {% elif education.block_type == "certificate" %}
+              {% with education.value as certificate %}
+                <div class="entry education">
+                  <div class="entry-left">
+                    <h3>{{ certificate.name }}</h3>
+                    <div class="institution">{{ certificate.institute_name }}</div>
+                    {% if certificate.institute_url %}
+                      <div class="url">
+                        <a href="{{ certificate.institute_url }}">{{ certificate.institute_url }}</a>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="entry-right">
+                    <div class="date">
+                      {{ certificate.studies_starting_date|date:"M Y" }} – {{ certificate.studies_ending_date|date:"M Y" }}
+                    </div>
+                  </div>
+                </div>
+              {% endwith %}
+            {% elif education.block_type == "course" %}
+              {% with education.value as course %}
+                <div class="entry">
+                  <div class="entry-left">
+                    <h3>{{ course.name }}</h3>
+                    {% if course.course_url %}
+                      <div class="url">
+                        <a href="{{ course.course_url }}">{{ course.course_url }}</a>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="entry-right">
+                    <div class="date">{{ course.studies_starting_date|date:"M Y" }} – {{ course.studies_ending_date|date:"M Y" }}</div>
+                  </div>
+                </div>
+              {% endwith %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </body>
+</html>

@@ -144,6 +144,12 @@ a {
     width: 80%;
   }
 
+  .pdf-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+
   .pdf {
     color: white;
     background: #2a3f76;
@@ -153,7 +159,18 @@ a {
     font-weight: 600;
     padding: 0.6rem 1.2rem;
     line-height: 25px;
-    float: right;
+  }
+
+  .pdf-academic {
+    background: #4a5f4a;
+  }
+
+  .pdf-academic:hover {
+    background: #3a4f3a;
+  }
+
+  .pdf:hover {
+    background: #1a2f66;
   }
 }
 

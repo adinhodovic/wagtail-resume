@@ -57,8 +57,14 @@
       </div>
       {% for block in page.resume %}{{ block }}{% endfor %}
       {% if page.pdf_generation_visibility == "always" or user.is_authenticated and page.pdf_generation_visibility == "authenticated" %}
-        <a class="pdf"
-           href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}">{% trans "Get PDF" %}</a>
+        <div class="pdf-buttons">
+          <a class="pdf"
+             href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}"
+             title="Download standard resume PDF">{% trans "Get PDF" %}</a>
+          <a class="pdf pdf-academic"
+             href="{% url 'generate_academic_resume_pdf' %}?page_id={{ page.id }}"
+             title="Download academic-style resume (professional CV format)">{% trans "Get Academic PDF" %}</a>
+        </div>
       {% endif %}
     </div>
   </div>

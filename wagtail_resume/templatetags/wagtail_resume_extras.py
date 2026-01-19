@@ -1,4 +1,5 @@
 import re
+
 from django import template
 from markdown import markdown
 

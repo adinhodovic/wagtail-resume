@@ -113,9 +113,9 @@ def academic_resume_pdf(request):
         resume_date = datetime.datetime.now()
     date = resume_date.strftime("%Y-%m-%d")
 
-    response["Content-Disposition"] = (
-        f"inline; filename={name}-academic-resume-{date}.pdf"
-    )
+    response[
+        "Content-Disposition"
+    ] = f"inline; filename={name}-academic-resume-{date}.pdf"
 
     # Render the academic template directly (no custom fonts needed)
     html_content = render_to_string(

@@ -58,4 +58,4 @@ def test_markdown_to_bullets_newlines():
     """Test markdown_to_bullets preserves line breaks."""
     markdown_text = "Line 1\nLine 2\nLine 3"
     result = markdown_to_bullets(markdown_text)
-    assert "<br />" in result
+    assert "<br>" in result

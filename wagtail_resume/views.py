@@ -1,8 +1,6 @@
 import datetime
 import logging
-from pathlib import Path
 
-from django.contrib.staticfiles import finders
 from django.http import (
     HttpResponse,
     HttpResponseBadRequest,
@@ -12,7 +10,7 @@ from django.http import (
 from django.template.loader import render_to_string
 from django.utils.text import slugify
 from wagtail.models import Page
-from weasyprint import CSS, HTML
+from weasyprint import HTML
 
 from wagtail_resume.templatetags.wagtail_resume_extras import space_to_plus
 
@@ -119,19 +117,26 @@ def academic_resume_pdf(request):
         "Content-Disposition"
     ] = f"inline; filename={name}-academic-resume-{date}.pdf"
 
-    # Render the academic template directly (no custom fonts needed)
+    # Get font from model
+    font = specific.font
+
+    # Render the academic template directly
     html_content = render_to_string(
         "wagtail_resume/academic_resume_page.html", {"page": specific}
     )
 
-    # Find the CSS file - try static finders first, then fallback to package path
-    css_path = finders.find("wagtail_resume/css/academic_resume_page.css")
-    if not css_path:
-        # Fallback to package-relative path for when staticfiles aren't collected
-        package_dir = Path(__file__).parent
-        css_path = package_dir / "static/wagtail_resume/css/academic_resume_page.css"
-
-    stylesheets = [CSS(filename=str(css_path))] if css_path else []
+    # Load Google Fonts - always include Noto Color Emoji for emoji support
+    stylesheets = []
+    if font:
+        font = space_to_plus(font).title()
+        full_font = f"{font}:400,400i,600,700|Noto+Color+Emoji"
+        stylesheets.append(
+            f"https://fonts.googleapis.com/css?family={full_font}&display=swap"
+        )
+    else:
+        stylesheets.append(
+            "https://fonts.googleapis.com/css?family=Noto+Color+Emoji&display=swap"
+        )
 
     HTML(string=html_content, base_url=request.build_absolute_uri("/")).write_pdf(
         response, stylesheets=stylesheets

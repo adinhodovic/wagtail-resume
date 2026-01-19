@@ -315,6 +315,13 @@ a {
 
 /* Page setup for PDF generation */
 @page {
-  margin: 0.75in;
+  margin: 0.75in 0.75in 0.85in 0.75in;
   size: A4;
+
+  @bottom-center {
+    content: "Page " counter(page) " of " counter(pages);
+    font-size: 8pt;
+    color: #666666;
+    font-style: italic;
+  }
 }

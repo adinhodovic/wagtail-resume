@@ -12,6 +12,13 @@
     <link rel="stylesheet"
           type="text/css"
           href="{% static 'wagtail_resume/css/academic_resume_page.css' %}" />
+    {% if page.font %}
+      <style>
+        body {
+          font-family: "{{ page.font }}", "Noto Color Emoji";
+        }
+      </style>
+    {% endif %}
   </head>
   <body>
     <!-- Header Section -->

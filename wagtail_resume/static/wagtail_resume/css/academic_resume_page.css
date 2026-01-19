@@ -8,8 +8,6 @@
 }
 
 body {
-  font-family:
-    "Latin Modern Roman", "Computer Modern", "Times New Roman", Times, serif;
   font-size: 10pt;
   line-height: 1.15;
   color: #000000;
@@ -120,7 +118,7 @@ h2 {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-top: 0.1in;
+  margin-top: 0.2in;
   margin-bottom: 0.05in;
   padding-bottom: 0.02in;
   border-bottom: 0.5pt solid #000000;
@@ -129,17 +127,15 @@ h2 {
 /* Entry Container - two-column layout like rendercv */
 .entry {
   margin-bottom: 0.12in;
-  page-break-inside: avoid;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  position: relative;
 }
 
 /* Work experience entries have more spacing and separator */
 .work-entry {
-  margin-bottom: 0.15in;
+  margin-bottom: 0.1in;
   padding-bottom: 0.08in;
   border-bottom: 0.5pt solid #dddddd;
+  page-break-inside: auto;
 }
 
 .work-entry:last-of-type {
@@ -148,21 +144,32 @@ h2 {
 }
 
 .entry-left {
-  flex: 1;
-  padding-right: 0.2in;
+  margin-right: 1.4in;
 }
 
 .entry-right {
+  position: absolute;
+  top: 0;
+  right: 0;
   text-align: right;
   white-space: nowrap;
-  flex-shrink: 0;
   min-width: 1.2in;
+}
+
+.entry-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  white-space: nowrap;
+  width: 1.2in;
 }
 
 hr {
   border: none;
   border-top: 0.5pt solid #dddddd;
-  margin: 0.1in 0;
+  margin-top: 0.06in;
+  margin-bottom: 0.04in;
 }
 
 /* Job Titles / Degree Names */

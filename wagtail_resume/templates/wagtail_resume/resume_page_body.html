@@ -19,53 +19,53 @@
   }
 </style>
 {% endwith %}
+<body style="font-family: {% if page.font %}'{{ page.font|title }}', {% endif %}'Roboto', 'Noto Sans'">
 {# djlint:on #}
-<body style="font-family: {% if page.font %}'{{ page.font|title }}',{% endif %}'Roboto', 'Noto Sans', 'Noto Color Emoji', sans-serif">
-  <div class="container">
-    <div class="resume">
-      <div class="personal-info">
-        <div>
-          <h2 class="mt-2 mb-0">{{ page.full_name }}</h2>
-          {% if page.role %}<h2 class="mt-2">{{ page.role }}</h2>{% endif %}
-          <div class="social-links">
-            {% for social_link in page.social_links %}
-              <div class="social-links">
-                <a class="social-link" href="{{ social_link.value.url }}">
-                  {% if social_link.value.logo %}
-                    {% image social_link.value.logo original class="mt-1" %}
-                    <span class="ml-1">{{ social_link.value.text }}</span>
-                  {% else %}
-                    <span class="ml-0">{{ social_link.value.text }}</span>
-                  {% endif %}
-                </a>
-              </div>
-            {% endfor %}
-          </div>
-          {% if page.display_last_update %}
-            <p class="small italic mt-1">Last update: {{ page.latest_revision_created_at|date }}</p>
-          {% endif %}
-        </div>
-        <div class="mt-4">{% image page.photo original class="photo" %}</div>
-      </div>
+<div class="container">
+  <div class="resume">
+    <div class="personal-info">
       <div>
-        <h2 class="mt-4 mb-0">
-          {% if page.about_icon %}<i class="{{ page.about_icon }}"></i>{% endif %}
-          <span>{% trans "About" %}</span>
-        </h2>
-        <hr />
-        <p>{{ page.about | markdown }}</p>
-      </div>
-      {% for block in page.resume %}{{ block }}{% endfor %}
-      {% if page.pdf_generation_visibility == "always" or user.is_authenticated and page.pdf_generation_visibility == "authenticated" %}
-        <div class="pdf-buttons">
-          <a class="pdf"
-             href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}"
-             title="Download standard resume PDF">{% trans "Get PDF" %}</a>
-          <a class="pdf pdf-academic"
-             href="{% url 'generate_academic_resume_pdf' %}?page_id={{ page.id }}"
-             title="Download academic-style resume (professional CV format)">{% trans "Get Academic PDF" %}</a>
+        <h2 class="mt-2 mb-0">{{ page.full_name }}</h2>
+        {% if page.role %}<h2 class="mt-2">{{ page.role }}</h2>{% endif %}
+        <div class="social-links">
+          {% for social_link in page.social_links %}
+            <div class="social-links">
+              <a class="social-link" href="{{ social_link.value.url }}">
+                {% if social_link.value.logo %}
+                  {% image social_link.value.logo original class="mt-1" %}
+                  <span class="ml-1">{{ social_link.value.text }}</span>
+                {% else %}
+                  <span class="ml-0">{{ social_link.value.text }}</span>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
         </div>
-      {% endif %}
+        {% if page.display_last_update %}
+          <p class="small italic mt-1">Last update: {{ page.latest_revision_created_at|date }}</p>
+        {% endif %}
+      </div>
+      <div class="mt-4">{% image page.photo original class="photo" %}</div>
     </div>
+    <div>
+      <h2 class="mt-4 mb-0">
+        {% if page.about_icon %}<i class="{{ page.about_icon }}"></i>{% endif %}
+        <span>{% trans "About" %}</span>
+      </h2>
+      <hr />
+      <p>{{ page.about | markdown }}</p>
+    </div>
+    {% for block in page.resume %}{{ block }}{% endfor %}
+    {% if page.pdf_generation_visibility == "always" or user.is_authenticated and page.pdf_generation_visibility == "authenticated" %}
+      <div class="pdf-buttons">
+        <a class="pdf"
+           href="{% url 'generate_resume_pdf' %}?page_id={{ page.id }}"
+           title="Download standard resume PDF">{% trans "Get PDF" %}</a>
+        <a class="pdf pdf-academic"
+           href="{% url 'generate_academic_resume_pdf' %}?page_id={{ page.id }}"
+           title="Download academic-style resume (professional CV format)">{% trans "Get Academic PDF" %}</a>
+      </div>
+    {% endif %}
   </div>
+</div>
 </body>
